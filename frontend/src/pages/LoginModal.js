@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import Nav from "./Nav";
-
+import Button from "../tags/button";
 //TODO: make it work better
 const customStyles = {
   content: {
@@ -44,7 +44,7 @@ const LoginModal = () => {
         contentLabel="Example Modal"
       >
         <Nav />
-        <button onClick={closeModal}>close</button>
+        <Button onClick={closeModal} text="close"></Button>
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
         <div>this is the login form</div>
         <form>

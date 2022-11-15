@@ -1,18 +1,21 @@
 import React from "react";
-import Nav from "./Nav";
+import Nav from "../components/Nav";
+import P from "../tags/P";
+import Iframe from "../tags/iframe";
+import Button from "../tags/button";
 
 const ExplainPage = () => (
   <>
     <Nav />
-    <p> Explanation....</p>
+    <P text="Explanation...." />
     <div>
-      <iframe
+      <Iframe
         width="560"
         height="315"
         src="https://www.youtube.com/embed/6OyFO6s5Wqw"
         title="YouTube video player"
-      ></iframe>
-      <button>will you use my program?</button>
+      />
+      <Button text="will you use my program?" />
     </div>
   </>
 );
