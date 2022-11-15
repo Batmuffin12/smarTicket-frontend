@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ExplainPage from "../components/explainPage";
-import HomePage from "../components/homePage";
+import ExplainPage from "../components/ExplainPage";
+import HomePage from "../components/HomePage";
 import NotFound from "../components/NotFound";
 import LoginModal from "../components/loginModal";
 const AppRouter = () => (

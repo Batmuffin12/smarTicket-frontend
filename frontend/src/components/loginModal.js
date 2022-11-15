@@ -48,7 +48,7 @@ const LoginModal = () => {
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
         <div>this is the login form</div>
         <form>
-          <input placeholder="Email" />
+          <input type="email" placeholder="Email" />
           <input placeholder="password" />
           <button type="submit">submit</button>
         </form>
