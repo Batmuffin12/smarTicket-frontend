@@ -5,17 +5,24 @@ export const textSizes = {
 };
 
 export const fonts = {
+  mainFont: "Roboto, sans-serif",
   boldFont: "Franklin Gothic Medium",
 };
 
 export const colors = {
-  darkBlue: `#272343`,
+  darkerLightBlue: `#7FE9DE`,
+  cyan: "#439A97",
   white: `#ffffff`,
   black: `#000000`,
-  whiteBlue: `#e3f6f5`,
-  lightBlue: `#bae8e8`,
+  lightCream: `#FFF6BF`,
+  darkCream: "#FFEBAD",
+  lightBlue: `#A5F1E9`,
 };
 
 export const sizes = {
+  smallInput: "4px",
+  mediumInput: "12px",
+  largeInput: "25px",
   itemMargin: "3px",
+  headerPadding: "10px",
 };

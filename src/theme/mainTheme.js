@@ -2,12 +2,12 @@ import { colors, fonts, textSizes, sizes } from "./themeSettings";
 
 const mainTheme = {
   colors: {
-    main: colors.darkBlue,
-    mainHover: colors.darkBlue,
-    secondary: colors.whiteBlue,
+    main: colors.lightBlue,
+    mainHover: colors.cyan,
+    secondary: colors.darkerLightBlue,
     text: colors.black,
-    background: colors.white,
-    buttonText: colors.white,
+    background: colors.lightCream,
+    buttonText: colors.black,
   },
   fonts,
   textSizes,

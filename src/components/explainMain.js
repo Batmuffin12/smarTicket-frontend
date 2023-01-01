@@ -10,7 +10,7 @@ const ExplainMain = () => (
       src="https://www.youtube.com/embed/6OyFO6s5Wqw"
       title="YouTube video player"
     />
-    <Button>will you use my program?</Button>
+    <Button text="will you use my program?" />
   </>
 );
 
