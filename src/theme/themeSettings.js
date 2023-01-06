@@ -17,12 +17,14 @@ export const colors = {
   lightCream: `#FFF6BF`,
   darkCream: "#FFEBAD",
   lightBlue: `#A5F1E9`,
+  grey: "#E0E0E0",
 };
 
 export const sizes = {
-  smallInput: "4px",
-  mediumInput: "12px",
-  largeInput: "25px",
+  smallSize: "4px",
+  mediumSize: "12px",
+  largeSize: "25px",
   itemMargin: "3px",
+  buttonPadding: "5px",
   headerPadding: "10px",
 };

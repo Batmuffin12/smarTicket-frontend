@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./uiKit/Button";
 import StyledInput from "./styles/StyledInput";
+import StyledContactForm from "./styles/StyledForm";
 
 const ContactForm = () => {
   const submitForm = (e) => {
@@ -8,12 +9,21 @@ const ContactForm = () => {
   };
 
   return (
-    <form>
-      <StyledInput placeholder="your name:" />
-      <StyledInput type="email" placeholder="your email:" />
-      <StyledInput size="large" placeholder="subject" />
+    <StyledContactForm>
+      <StyledInput
+        size="mediumSize
+"
+        placeholder="your name:"
+      />
+      <StyledInput
+        size="mediumSize
+"
+        type="email"
+        placeholder="your email:"
+      />
+      <StyledInput size="largeSize" placeholder="subject" />
       <Button text="submit" onClick={submitForm} />
-    </form>
+    </StyledContactForm>
   );
 };
 export default ContactForm;

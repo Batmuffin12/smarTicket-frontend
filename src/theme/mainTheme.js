@@ -7,6 +7,7 @@ const mainTheme = {
     secondary: colors.darkerLightBlue,
     text: colors.black,
     background: colors.lightCream,
+    secondaryBackground: colors.grey,
     buttonText: colors.black,
   },
   fonts,
