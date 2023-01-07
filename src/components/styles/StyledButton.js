@@ -1,9 +1,9 @@
 import styled from "styled-components";
+import Button from "../uiKit/Button";
 
-const StyledButton = styled.button`
+const StyledButton = styled(Button)`
   font-size: ${({ theme }) => theme.textSizes.smallSize};
-  /* background-color: ${({ theme }) => theme.colors.secondaryBackground};*/
-  background: linear-gradient(
+  background-image: -webkit-linear-gradient(
     ${({ theme }) => theme.colors.background},
     ${({ theme }) => theme.colors.secondaryBackground}
   );
@@ -18,7 +18,6 @@ const StyledButton = styled.button`
 
   :hover {
     border-color: ${({ theme }) => theme.colors.secondary};
-    /* background-color: ${({ theme }) => theme.colors.background}; */
     color: ${({ theme }) => theme.colors.mainHover};
     opacity: 1;
   }

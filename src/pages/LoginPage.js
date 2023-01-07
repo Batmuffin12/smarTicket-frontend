@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import LoginModal from "../components/LoginModal";
-import Button from "../components/uiKit/Button";
+import StyledButton from "../components/styles/StyledButton";
 
 const LoginPage = () => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -18,7 +18,7 @@ const LoginPage = () => {
 
   return (
     <div>
-      <Button onClick={openModal} text="Open Modal" />
+      <StyledButton onClick={openModal}>open Modal</StyledButton>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}

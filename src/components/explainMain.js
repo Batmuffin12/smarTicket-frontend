@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./uiKit/Button";
+import StyledButton from "./styles/StyledButton";
 import Iframe from "./uiKit/Iframe";
 
 const ExplainMain = () => (
@@ -10,7 +10,8 @@ const ExplainMain = () => (
       src="https://www.youtube.com/embed/6OyFO6s5Wqw"
       title="YouTube video player"
     />
-    <Button text="will you use my program?" />
+    <StyledButton>will you use my program?</StyledButton>
+    {/* {Array.map((train) => <trainComponent {...train}/>)} */}
   </>
 );
 
