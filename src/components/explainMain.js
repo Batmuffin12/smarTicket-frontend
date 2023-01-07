@@ -1,17 +1,16 @@
 import React from "react";
 import StyledButton from "./styles/StyledButton";
-import Iframe from "./uiKit/Iframe";
+import StyledIframe from "./styles/StyledIframe";
 
 const ExplainMain = () => (
   <>
-    <Iframe
+    <StyledIframe
       width="560"
       height="315"
       src="https://www.youtube.com/embed/6OyFO6s5Wqw"
       title="YouTube video player"
     />
     <StyledButton>will you use my program?</StyledButton>
-    {/* {Array.map((train) => <trainComponent {...train}/>)} */}
   </>
 );
 

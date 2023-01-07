@@ -22,6 +22,9 @@ export const colors = {
 };
 
 export const sizes = {
+  smallImgScale: "10%",
+  mediumImgScale: "40%",
+  bigImgScale: "50%",
   smallSize: "4px",
   mediumSize: "12px",
   largeSize: "25px",

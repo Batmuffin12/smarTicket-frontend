@@ -11,16 +11,25 @@ const StyledInput = styled(Input)`
   border-radius: ${({ theme }) => theme.sizes.smallSize};
   border-bottom: 2px solid ${({ theme }) => theme.colors.background};
   outline: 0;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
   font-size: ${({ theme }) => theme.textSizes.mediumSize};
+  text-align: center;
 
   @media (max-width: 650px) {
     font-size: ${({ theme }) => theme.textSizes.largeSize};
   }
 
   :focus {
+    ::placeholder {
+      transition: 0.3s ease-in-out;
+      color: transparent;
+    }
     border-color: ${({ theme }) => theme.colors.secondary};
     color: ${({ theme }) => theme.colors.mainHover};
+  }
+
+  :hover {
+    border-color: ${({ theme }) => theme.colors.secondary};
   }
 `;
 

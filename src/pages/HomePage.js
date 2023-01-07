@@ -10,7 +10,7 @@ const HomePage = () => (
   <>
     <Nav />
     <StyledH1 text="Welcome to SmarTicket" />
-    <StyledImg src={logo} alt="this is the photo alt" />
+    <StyledImg src={logo} alt="this is the photo alt" size="mediumImgScale" />
     <br />
     <StyledButton>So what are we doing?</StyledButton>
     <StyledFooter />
