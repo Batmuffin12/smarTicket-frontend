@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./uiKit/Button";
+import StyledButton from "./styles/StyledButton";
 import Input from "./uiKit/Input";
 
 const LoginForm = () => {
@@ -11,7 +11,9 @@ const LoginForm = () => {
     <form>
       <Input type="email" placeholder="Email" />
       <Input placeholder="password" />
-      <Button type="submit" text="submit" onClick={formSubmit} />
+      <StyledButton type="submit" onClick={formSubmit}>
+        submit
+      </StyledButton>
     </form>
   );
 };

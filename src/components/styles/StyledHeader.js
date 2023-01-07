@@ -5,10 +5,15 @@ const StyledHeader = styled.header`
   padding: ${({ theme }) => theme.sizes.headerPadding};
   flex-flow: row wrap;
   justify-content: center;
-  background-color: ${({ theme }) => theme.colors.main};
+  background-image: -webkit-linear-gradient(
+    right,
+    ${({ theme }) => theme.colors.secondaryBackground},
+    ${({ theme }) => theme.colors.main},
+    ${({ theme }) => theme.colors.secondaryBackground}
+  );
   gap: ${({ theme }) => theme.sizes.itemMargin};
   margin: 0px;
-  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
   text-transform: uppercase;
   overflow: hidden;
 `;

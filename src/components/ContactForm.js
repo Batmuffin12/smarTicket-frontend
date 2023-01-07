@@ -1,7 +1,7 @@
 import React from "react";
-import Button from "./uiKit/Button";
 import StyledInput from "./styles/StyledInput";
 import StyledContactForm from "./styles/StyledForm";
+import StyledButton from "./styles/StyledButton";
 
 const ContactForm = () => {
   const submitForm = (e) => {
@@ -10,19 +10,10 @@ const ContactForm = () => {
 
   return (
     <StyledContactForm>
-      <StyledInput
-        size="mediumSize
-"
-        placeholder="your name:"
-      />
-      <StyledInput
-        size="mediumSize
-"
-        type="email"
-        placeholder="your email:"
-      />
+      <StyledInput size="mediumSize" placeholder="your name:" />
+      <StyledInput size="mediumSize" type="email" placeholder="your email:" />
       <StyledInput size="largeSize" placeholder="subject" />
-      <Button text="submit" onClick={submitForm} />
+      <StyledButton onClick={submitForm}>submit</StyledButton>
     </StyledContactForm>
   );
 };

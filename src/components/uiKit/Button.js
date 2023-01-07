@@ -1,10 +1,7 @@
 import React from "react";
-import StyledButton from "../styles/StyledButton";
 
-const Button = ({ onClick = () => {}, text = "", ...rest }) => (
-  <StyledButton onClick={onClick} {...rest}>
-    {text}
-  </StyledButton>
+const Button = ({ onClick = () => {}, ...rest }) => (
+  <button onClick={onClick} {...rest}></button>
 );
 
 export default Button;

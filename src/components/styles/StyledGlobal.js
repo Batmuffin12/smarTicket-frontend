@@ -10,8 +10,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     height: 100%;
     margin: 0;
-    background:linear-gradient(${({ theme }) => theme.colors.background},
-    ${({ theme }) => theme.colors.main});
+    background-image: 
+    -webkit-linear-gradient(bottom,
+    ${({ theme }) => theme.colors.main},  
+    ${({ theme }) => theme.colors.background});
     background-repeat: no-repeat;
   }
 `;

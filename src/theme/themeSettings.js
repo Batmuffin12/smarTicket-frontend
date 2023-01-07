@@ -18,6 +18,7 @@ export const colors = {
   darkCream: "#FFEBAD",
   lightBlue: `#A5F1E9`,
   grey: "#E0E0E0",
+  lightPink: "#FFE7E9",
 };
 
 export const sizes = {
