@@ -1,11 +1,11 @@
 import React from "react";
-import LoginModal from "../components/LoginModal";
+import SignUpModal from "../components/SignUpModal";
 import StyledModal from "../components/styles/StyledModal";
 
 const LoginPage = () => {
   return (
     <StyledModal isOpen={true}>
-      <LoginModal />
+      <SignUpModal />
     </StyledModal>
   );
 };

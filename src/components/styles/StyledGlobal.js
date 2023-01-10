@@ -4,11 +4,10 @@ const GlobalStyle = createGlobalStyle`
   html {
     height: 100%;
     font-family: ${({ theme }) => theme.fonts.mainFont};
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
   }    
 
   body {
-    height: 100%;
     margin: 0;
     background-image: 
     -webkit-linear-gradient(bottom,

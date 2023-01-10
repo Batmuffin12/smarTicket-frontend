@@ -1,20 +1,22 @@
 import React from "react";
 import StyledButton from "./styles/StyledButton";
-import Input from "./uiKit/Input";
+import StyledForm from "./styles/StyledForm";
+import StyledInput from "./styles/StyledInput";
 
 const LoginForm = () => {
   const formSubmit = (e) => {
     e.preventDefault();
+    //fetch data
   };
 
   return (
-    <form>
-      <Input type="email" placeholder="Email" />
-      <Input placeholder="password" />
+    <StyledForm>
+      <StyledInput type="email" placeholder="Email" />
+      <StyledInput type="password" placeholder="password" />
       <StyledButton type="submit" onClick={formSubmit}>
         submit
       </StyledButton>
-    </form>
+    </StyledForm>
   );
 };
 

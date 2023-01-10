@@ -27,7 +27,7 @@ export const sizes = {
   bigImgScale: "50%",
   smallSize: "4px",
   mediumSize: "12px",
-  largeSize: "25px",
+  largeSize: "30px",
   itemMargin: "3px",
   buttonPadding: "5px",
   headerPadding: "10px",

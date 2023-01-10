@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledContactForm = styled.form`
+const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -12,4 +12,4 @@ const StyledContactForm = styled.form`
   }
 `;
 
-export default StyledContactForm;
+export default StyledForm;

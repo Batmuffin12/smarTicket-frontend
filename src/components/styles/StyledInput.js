@@ -6,10 +6,11 @@ const StyledInput = styled(Input)`
   color: ${({ theme }) => theme.colors.text};
   padding: 0 ${({ theme, size }) => theme.sizes[size]}
     ${({ theme, size }) => theme.sizes[size]} 0;
+  height: 40px;
   margin: ${({ theme }) => theme.sizes.itemMargin};
   border: none;
   border-radius: ${({ theme }) => theme.sizes.smallSize};
-  border-bottom: 2px solid ${({ theme }) => theme.colors.background};
+  border-bottom: 3px solid ${({ theme }) => theme.colors.background};
   outline: 0;
   transition: 0.3s ease-in-out;
   font-size: ${({ theme }) => theme.textSizes.mediumSize};
