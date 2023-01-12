@@ -1,13 +1,11 @@
 import React from "react";
 import LoginForm from "./LoginForm";
-import Nav from "./Nav";
 import StyledA from "./styles/StyledA";
 import StyledP from "./styles/StyledP";
 
 const LoginModal = () => {
   return (
     <>
-      <Nav />
       <LoginForm />
       <StyledP>
         Not signed yet?

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Nav from "./Nav";
 import SignUpForm from "./SignUpForm";
 import StyledA from "./styles/StyledA";
 import StyledP from "./styles/StyledP";
@@ -9,7 +8,6 @@ const SignUpModal = () => {
 
   return (
     <>
-      <Nav />
       <SignUpForm phase={phase} setPhase={setPhase} />
       <StyledP>
         already has an account?

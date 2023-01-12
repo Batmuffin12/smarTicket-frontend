@@ -13,6 +13,7 @@ const StyledHeader = styled.header`
   );
   gap: ${({ theme }) => theme.sizes.itemMargin};
   margin: 0px;
+  height: ${({ theme }) => theme.sizes.headerHeight};
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
   text-transform: uppercase;
   overflow: hidden;

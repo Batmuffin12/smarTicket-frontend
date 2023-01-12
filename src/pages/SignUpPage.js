@@ -1,12 +1,15 @@
 import React from "react";
 import SignUpModal from "../components/SignUpModal";
 import StyledModal from "../components/styles/StyledModal";
+import StyledModalPageWrapper from "../components/styles/StyledModalPageWrapper";
 
 const LoginPage = () => {
   return (
-    <StyledModal isOpen={true}>
-      <SignUpModal />
-    </StyledModal>
+    <StyledModalPageWrapper>
+      <StyledModal isOpen={true}>
+        <SignUpModal />
+      </StyledModal>
+    </StyledModalPageWrapper>
   );
 };
 

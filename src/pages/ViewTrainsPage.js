@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Nav from "../components/Nav";
-import StyledFooter from "../components/styles/StyledFooter";
 import StyledTrainView from "../components/styles/StyledTrainView";
 
 const ViewTrainsPage = () => {
@@ -21,7 +19,6 @@ const ViewTrainsPage = () => {
   const [trainArr, setTrainArr] = useState(fetchData);
   return (
     <>
-      <Nav />
       {trainArr.map((trainData) => (
         <StyledTrainView
           key={trainData.id}
@@ -29,7 +26,6 @@ const ViewTrainsPage = () => {
           setTrainArr={setTrainArr}
         />
       ))}
-      <StyledFooter />
     </>
   );
 };

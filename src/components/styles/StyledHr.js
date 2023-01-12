@@ -3,6 +3,7 @@ import styled from "styled-components";
 const StyledHr = styled.hr`
   border: 0;
   height: 1px;
+  margin: ${({ marginCss = "0" }) => marginCss};
   background-image: -webkit-linear-gradient(
     left,
     ${({ theme }) => theme.colors.background},

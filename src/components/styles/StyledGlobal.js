@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   html {
-    height: 100%;
+    height: 100%; 
     font-family: ${({ theme }) => theme.fonts.mainFont};
     scroll-behavior: smooth;
   }    

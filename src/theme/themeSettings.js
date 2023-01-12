@@ -22,13 +22,15 @@ export const colors = {
 };
 
 export const sizes = {
-  smallImgScale: "10%",
-  mediumImgScale: "40%",
-  bigImgScale: "50%",
+  smallImgScale: "75px",
+  mediumImgScale: "150px", //correct this number
+  bigImgScale: "300px", //correct this number
   smallSize: "4px",
   mediumSize: "12px",
   largeSize: "30px",
   itemMargin: "3px",
   buttonPadding: "5px",
-  headerPadding: "10px",
+  headerPadding: `10px`,
+  headerHeight: `45px`,
+  footerHeight: `80px`,
 };

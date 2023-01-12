@@ -6,7 +6,7 @@ const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.buttonText};
   transition: all 1s ease-in-out;
-  padding: ${({ theme }) => theme.textSizes.smallSize};
+  margin: ${({ theme }) => theme.textSizes.smallSize};
   transition: all 0.3s ease-in-out;
   text-decoration: none;
 
