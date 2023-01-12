@@ -12,7 +12,7 @@ const dynamicActions = genericActions
     }))
   )
   .flat()
-  .reduce((preValue, currValue) => ({ ...preValue, ...currValue }, {}));
+  .reduce((preValue, currValue) => ({ ...preValue, ...currValue }), {});
 
 const actions = {
   ...dynamicActions,

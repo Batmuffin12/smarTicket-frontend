@@ -1,5 +1,5 @@
 import { models } from "appConstants/models";
-import { composeReducers, makeAsyncReducer, makeReducer } from "redux-toolbelt";
+import { composeReducers, makeAsyncReducer } from "redux-toolbelt";
 import { capitalize } from "utils/storeUtils";
 import actions from "./actions";
 
