@@ -11,6 +11,8 @@ const dynamicReduces = models.map(({ model, customerMethodName }) => ({
   ),
 }));
 
-export default {
+const reducers = {
   ...dynamicReduces,
 };
+
+export default reducers;
