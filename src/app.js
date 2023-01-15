@@ -10,6 +10,13 @@ import StyledFooter from "./components/styles/StyledFooter";
 
 // TODO: after adding global state, add button to change theme(not here)
 
+// jsonconfig.json
+// {
+//   "include": ["src"],
+//   "compilerOptions": {
+//       "baseUrl": "./src",
+//   }
+// }
 const App = () => {
   return (
     <Router>

@@ -18,7 +18,7 @@ const ViewTrainsPage = () => {
   ]; //fetch data
   const [trainArr, setTrainArr] = useState(fetchData);
   return (
-    <>
+    <div>
       {trainArr.map((trainData) => (
         <StyledTrainView
           key={trainData.id}
@@ -26,7 +26,7 @@ const ViewTrainsPage = () => {
           setTrainArr={setTrainArr}
         />
       ))}
-    </>
+    </div>
   );
 };
 

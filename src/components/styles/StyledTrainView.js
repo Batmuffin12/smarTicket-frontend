@@ -1,9 +1,6 @@
 import styled from "styled-components";
 import TrainView from "../Trainview";
 
-const StyledTrainView = styled(TrainView)`
-  margin: 20%;
-  border: 1px solid black;
-`;
+const StyledTrainView = styled(TrainView)``;
 
 export default StyledTrainView;

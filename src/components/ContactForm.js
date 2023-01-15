@@ -1,8 +1,6 @@
 import React from "react";
-import StyledInput from "./styles/StyledInput";
 import StyledForm from "./styles/StyledForm";
-import StyledButton from "./styles/StyledButton";
-
+import Form from "./Form";
 const ContactForm = () => {
   const submitForm = (e) => {
     e.preventDefault();
@@ -11,10 +9,32 @@ const ContactForm = () => {
 
   return (
     <StyledForm>
-      <StyledInput size="mediumSize" placeholder="your name:" />
-      <StyledInput size="mediumSize" type="email" placeholder="your email:" />
-      <StyledInput size="largeSize" placeholder="subject" />
-      <StyledButton onClick={submitForm}>submit</StyledButton>
+      <Form
+        inputs={[
+          {
+            type: "text",
+            size: "mediumSize",
+            placeholder: "Your Name:",
+          },
+          {
+            type: "text",
+            placeholder: "Your Email:",
+            size: "mediumSize",
+          },
+          {
+            type: "text",
+            placeholder: "Subject",
+            size: "largeSize",
+          },
+        ]}
+        buttons={[
+          {
+            type: "submit",
+            onClick: submitForm,
+            text: "submit",
+          },
+        ]}
+      />
     </StyledForm>
   );
 };

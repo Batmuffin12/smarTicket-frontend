@@ -1,6 +1,6 @@
-import { useActions } from "hooks/useAction";
+import { useActions } from "../hooks/useAction";
 import React, { useEffect } from "react";
-import actions from "store/actions";
+import actions from "../store/actions";
 import StyledA from "../components/styles/StyledA";
 import StyledButton from "../components/styles/StyledButton";
 import StyledH1 from "../components/styles/StyledH1";
@@ -12,10 +12,10 @@ const componentActions = {
 };
 
 const HomePage = () => {
-  const { getTrain } = useActions(componentActions);
-  useEffect(() => {
-    getTrain();
-  });
+  // const { getTrain } = useActions(componentActions);
+  // useEffect(() => {
+  //   getTrain();
+  // });
   return (
     <>
       <StyledH1 text="Welcome to SmarTicket" />

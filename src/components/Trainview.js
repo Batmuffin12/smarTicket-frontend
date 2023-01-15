@@ -1,19 +1,29 @@
 import React from "react";
+import styled from "styled-components";
 import StyledA from "./styles/StyledA";
 import StyledButton from "./styles/StyledButton";
 import StyledP from "./styles/StyledP";
 
+const TrainViewWrapper = styled.div`
+  margin: ${({ theme }) => theme.sizes.mediumSize};
+  align-items: right;
+  border: 1px solid;
+`;
+
 const TrainView = ({ trainData, setTrainArr }) => {
   return (
-    <div>
-      <StyledP>train number: {trainData.number} </StyledP>
-      <StyledP>train first station : {trainData.firstStation}</StyledP>
-      <StyledP>train last station: {trainData.lastStation}</StyledP>
-      <br />
+    <TrainViewWrapper>
+      <StyledP textAlign="left">Train number: {trainData.number} </StyledP>
+      <StyledP textAlign="left">
+        Train first station : {trainData.firstStation}
+      </StyledP>
+      <StyledP textAlign="left">
+        Train last station: {trainData.lastStation}
+      </StyledP>
       <StyledButton>
-        <StyledA href={`/buyTicket/${trainData.id}`}>buy Ticket</StyledA>
+        <StyledA href={`/buyTicket/${trainData.id}`}>Buy Ticket</StyledA>
       </StyledButton>
-    </div>
+    </TrainViewWrapper>
   );
 };
 

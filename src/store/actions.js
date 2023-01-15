@@ -1,7 +1,7 @@
-import genericActions from "appConstants/genericActions";
-import { models } from "appConstants/models";
+import genericActions from "../appConstants/genericActions";
+import { models } from "../appConstants/models";
 import { makeAsyncActionCreator } from "redux-toolbelt";
-import { capitalize } from "utils/storeUtils";
+import { capitalize } from "../utils/storeUtils";
 
 const dynamicActions = genericActions
   .map((method) =>
