@@ -1,8 +1,17 @@
 import React from "react";
-import StyledButton from "./styles/StyledButton";
 import StyledForm from "./styles/StyledForm";
-import StyledInput from "./styles/StyledInput";
 import Form from "./Form";
+import styled from "styled-components";
+
+const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+`;
+
 const LoginForm = () => {
   const formSubmit = (e) => {
     //fetch data
@@ -11,18 +20,23 @@ const LoginForm = () => {
   return (
     <StyledForm>
       <Form
+        InputWrapper={InputWrapper}
+        ButtonWrapper={ButtonWrapper}
         inputs={[
           {
+            name: "email",
             type: "email",
             placeholder: "Email",
           },
           {
+            name: "password",
             type: "password",
             placeholder: "Password",
           },
         ]}
         buttons={[
           {
+            name: "submit",
             type: "submit",
             onClick: formSubmit,
             text: "Submit",

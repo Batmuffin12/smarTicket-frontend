@@ -15,7 +15,6 @@ const StyledButton = styled(Button)`
   padding: ${({ theme }) => theme.sizes.buttonPadding};
   opacity: 0.7;
   cursor: pointer;
-
   :hover {
     border-color: ${({ theme }) => theme.colors.secondary};
     color: ${({ theme }) => theme.colors.mainHover};

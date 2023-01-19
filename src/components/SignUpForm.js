@@ -1,6 +1,16 @@
 import React from "react";
 import StyledForm from "./styles/StyledForm";
 import Form from "./Form";
+import styled from "styled-components";
+
+const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+`;
 
 const SignUpForm = (props) => {
   const clickNextPhase = (e) => {
@@ -20,23 +30,28 @@ const SignUpForm = (props) => {
       return (
         <StyledForm>
           <Form
+            InputWrapper={InputWrapper}
             inputs={[
               {
+                name: "name",
                 type: "email",
                 placeholder: "Email",
               },
               {
+                name: "password",
                 type: "password",
                 placeholder: "Password",
               },
               {
+                name: "confirmPassword",
                 type: "password",
                 placeholder: "Confirm Password",
               },
             ]}
+            ButtonWrapper={ButtonWrapper}
             buttons={[
               {
-                type: "submit",
+                name: "nextPhase",
                 onClick: clickNextPhase,
                 text: "Next Phase",
               },
@@ -51,26 +66,31 @@ const SignUpForm = (props) => {
           <Form
             inputs={[
               {
+                name: "creditNumber",
                 type: "text",
                 placeholder: "Credit Card Number",
               },
               {
+                name: "creditValid",
                 type: "month",
                 placeholder: "",
               },
               {
+                name: "creditCVC",
                 type: "text",
                 placeholder: "Credit Card CVC",
               },
             ]}
+            InputWrapper={InputWrapper}
+            ButtonWrapper={ButtonWrapper}
             buttons={[
               {
-                type: "submit",
+                name: "nextPhase",
                 onClick: clickNextPhase,
                 text: "Next Phase",
               },
               {
-                type: "submit",
+                name: "back",
                 onClick: clickPrevPhase,
                 text: "Edit email and password",
               },
@@ -83,19 +103,23 @@ const SignUpForm = (props) => {
       return (
         <StyledForm>
           <Form
+            InputWrapper={InputWrapper}
+            ButtonWrapper={ButtonWrapper}
             inputs={[
               {
+                name: "image",
                 type: "file",
               },
             ]}
             buttons={[
               {
+                name: "submit",
                 type: "submit",
                 onClick: formSubmit,
                 text: "Submit data",
               },
               {
-                type: "submit",
+                name: "back",
                 onClick: clickPrevPhase,
                 text: "Edit card details",
               },
@@ -105,7 +129,7 @@ const SignUpForm = (props) => {
       ); //returns form with image upload
 
     default:
-      return;
+      return <div />;
   }
 };
 export default SignUpForm;
