@@ -1,6 +1,6 @@
 import React from "react";
-import ExplainMain from "../components/explainMain";
-import StyledP from "../components/styles/StyledP";
+import ExplainMain from "components/explainMain";
+import StyledP from "components/styles/StyledP";
 
 const ExplainPage = () => (
   <>

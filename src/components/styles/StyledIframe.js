@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Iframe from "../uiKit/Iframe";
+import Iframe from "components/uiKit/Iframe";
 
 const StyledIframe = styled(Iframe)`
   border: none;

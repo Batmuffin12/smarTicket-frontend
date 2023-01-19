@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Button from "../uiKit/Button";
+import Button from "components/uiKit/Button";
 
 const StyledButton = styled(Button)`
   font-size: ${({ theme }) => theme.textSizes.smallSize};

@@ -1,7 +1,7 @@
 import React from "react";
-import SignUpModal from "../components/SignUpModal";
-import StyledModal from "../components/styles/StyledModal";
-import StyledModalPageWrapper from "../components/styles/StyledModalPageWrapper";
+import SignUpModal from "components/SignUpModal";
+import StyledModal from "components/styles/StyledModal";
+import StyledModalPageWrapper from "components/styles/StyledModalPageWrapper";
 
 const LoginPage = () => {
   return (

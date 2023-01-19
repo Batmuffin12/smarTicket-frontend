@@ -1,9 +1,8 @@
-import React from "react";
-import StyledHr from "../styles/StyledHr";
-import StyledImg from "../styles/StyledImg";
-import StyledP from "../styles/StyledP";
-import logo from "../../smarticket logo.png";
+import StyledHr from "components/styles/StyledHr";
+import StyledImg from "components/styles/StyledImg";
+import StyledP from "components/styles/StyledP";
 import styled from "styled-components";
+import logo from "../../smarticket logo.png";
 
 const style = {
   float: "left",

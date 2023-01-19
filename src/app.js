@@ -1,34 +1,35 @@
-import React, { Suspense } from "react";
+import Footer from "components/uiKit/Footer";
+import { createBrowserHistory } from "history";
+import { Suspense } from "react";
+import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import AppRoutes from "./routers/Routes";
-import mainTheme from "./theme/mainTheme";
-import GlobalStyle from "./components/styles/StyledGlobal";
 import Nav from "./components/Nav";
-import StyledFooter from "./components/styles/StyledFooter";
+import GlobalStyle from "./components/styles/StyledGlobal";
+import AppRoutes from "./routers/Routes";
+import actions from "./store/actions";
+import configureStore from "./store/configureStore";
+import mainTheme from "./theme/mainTheme";
 // import darkTheme from "./theme/darkTheme";
 
-// TODO: after adding global state, add button to change theme(not here)
+const history = createBrowserHistory();
+const store = configureStore({ history });
+store.dispatch(actions.init());
 
-// jsonconfig.json
-// {
-//   "include": ["src"],
-//   "compilerOptions": {
-//       "baseUrl": "./src",
-//   }
-// }
 const App = () => {
   return (
-    <Router>
-      <Suspense fallback={<div>Loading...</div>}>
-        <ThemeProvider theme={mainTheme}>
-          <GlobalStyle />
-          <Nav />
-          <AppRoutes />
-          <StyledFooter />
-        </ThemeProvider>
-      </Suspense>
-    </Router>
+    <Provider {...{ store }}>
+      <Router>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ThemeProvider theme={mainTheme}>
+            <GlobalStyle />
+            <Nav />
+            <AppRoutes />
+            <Footer />
+          </ThemeProvider>
+        </Suspense>
+      </Router>
+    </Provider>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import ContactForm from "../components/ContactForm";
-import StyledH1 from "../components/styles/StyledH1";
+import ContactForm from "components/ContactForm";
+import StyledH1 from "components/styles/StyledH1";
 
 const ContactWrapper = styled.div`
   margin-top: ${({ theme }) => theme.sizes.largeSize};

@@ -3,13 +3,15 @@ import { composeReducers, makeAsyncReducer } from "redux-toolbelt";
 import { capitalize } from "utils/storeUtils";
 import actions from "./actions";
 
-const dynamicReduces = models.map(({ model, customerMethodName }) => ({
-  [model]: composeReducers(
-    makeAsyncReducer(actions[customerMethodName || `get${capitalize(model)}`], {
-      defaultData: [],
-    })
-  ),
-}));
+const dynamicReduces = models
+  .map(({ model, customMethodName }) => ({
+    [model]: composeReducers(
+      makeAsyncReducer(actions[customMethodName || `get${capitalize(model)}`], {
+        defaultData: [],
+      })
+    ),
+  }))
+  .reduce((prev, curr) => ({ ...prev, ...curr }), {});
 
 const reducers = {
   ...dynamicReduces,

@@ -1,6 +1,5 @@
-import React from "react";
-import StyledHeader from "./styles/StyledHeader";
-import NavLinkTag from "./uiKit/NavLink";
+import StyledHeader from "components/styles/StyledHeader";
+import NavLinkTag from "components/uiKit/NavLink";
 
 const Nav = () => {
   return (

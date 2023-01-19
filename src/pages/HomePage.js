@@ -1,15 +1,12 @@
-// eslint-disable-next-line
-import { useActions } from "../hooks/useAction";
-// eslint-disable-next-line
 import React, { useEffect } from "react";
-import actions from "../store/actions";
-import StyledButton from "../components/styles/StyledButton";
-import StyledH1 from "../components/styles/StyledH1";
-import StyledImg from "../components/styles/StyledImg";
+import StyledButton from "components/styles/StyledButton";
+import StyledH1 from "components/styles/StyledH1";
+import StyledImg from "components/styles/StyledImg";
+import StyledLink from "components/styles/StyledLink";
+import { useActions } from "hooks/useAction";
 import logo from "../logo512.png";
-import StyledLink from "../components/styles/StyledLink";
+import actions from "store/actions";
 
-// eslint-disable-next-line
 const componentActions = {
   getTrain: actions.getTrain,
 };

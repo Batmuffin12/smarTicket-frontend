@@ -1,14 +1,14 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import ContactUs from "../pages/ContactUsPage";
-import ExplainPage from "../pages/ExplainPage";
-import HomePage from "../pages/HomePage";
-import LoginPage from "../pages/LoginPage";
-import NotFound from "../pages/NotFoundPage";
-import SignUpPage from "../pages/SignUpPage";
-import ViewTrainsPage from "../pages/ViewTrainsPage";
+import ContactUs from "pages/ContactUsPage";
+import ExplainPage from "pages/ExplainPage";
+import HomePage from "pages/HomePage";
+import LoginPage from "pages/LoginPage";
+import NotFound from "pages/NotFoundPage";
+import SignUpPage from "pages/SignUpPage";
+import ViewTrainsPage from "pages/ViewTrainsPage";
 import styled from "styled-components";
-import { convertToInt } from "../utils/themeUtils";
+import { convertToInt } from "utils/themeUtils";
 
 const calcProperHeight = (theme) => {
   const { footerHeight, headerHeight, mainPadding } = theme.sizes;

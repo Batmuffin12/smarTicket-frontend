@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Input from "../uiKit/Input";
+import Input from "components/uiKit/Input";
 
 const StyledInput = styled(Input)`
   background: ${({ theme }) => theme.colors.background};

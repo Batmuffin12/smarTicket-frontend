@@ -6,7 +6,7 @@ import actions from "store/actions";
 import genericActions from "appConstants/genericActions";
 
 const trivials = [
-  genericActions
+  ...genericActions
     .map((method) => models.map(({ model }) => `${method}${capitalize(model)}`))
     .flat(),
   "login",
