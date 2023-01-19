@@ -10,6 +10,8 @@ const style = {
 };
 
 const FooterWrapper = styled.div`
+  /* background-color: ${({ theme }) =>
+    theme.colors.secondaryBackground}; TODO: choose a color for footer */
   height: ${({ theme }) => theme.sizes.footerHeight};
 `;
 

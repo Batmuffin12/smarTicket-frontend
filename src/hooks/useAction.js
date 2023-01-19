@@ -9,11 +9,11 @@ export const useActions = (actions) => {
       Object.keys(actions)?.reduce(
         (acc, actionProp) => ({
           ...acc,
-          [actionProp]: bindActionCreators((actions[actionProp], dispatch)),
+          [actionProp]: bindActionCreators(actions[actionProp], dispatch),
         }),
         {}
       ),
     //look out for the dependencies might do some problems
-    [actions, dispatch]
+    [dispatch]
   );
 };
