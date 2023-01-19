@@ -1,7 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import A from "../uiKit/A.js";
 
-const StyledA = styled(A)`
+const StyledLink = styled(Link)`
   color: ${({ theme }) => theme.colors.text};
   text-decoration: none;
   transition: all 0.3s ease-in-out;
@@ -11,4 +11,4 @@ const StyledA = styled(A)`
   }
 `;
 
-export default StyledA;
+export default StyledLink;

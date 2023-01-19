@@ -1,6 +1,7 @@
 import React from "react";
 import StyledForm from "./styles/StyledForm";
 import Form from "./Form";
+
 const ContactForm = () => {
   const submitForm = (e) => {
     e.preventDefault();

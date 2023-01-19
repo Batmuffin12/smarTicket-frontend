@@ -1,13 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import StyledA from "./styles/StyledA";
 import StyledButton from "./styles/StyledButton";
+import StyledLink from "./styles/StyledLink";
 import StyledP from "./styles/StyledP";
 
 const TrainViewWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   margin: ${({ theme }) => theme.sizes.mediumSize};
-  align-items: right;
+  margin-right: auto;
   border: 1px solid;
+  padding: ${({ theme }) => theme.sizes.mainPadding};
+  width: 300px;
+  height: 200px;
 `;
 
 const TrainView = ({ trainData, setTrainArr }) => {
@@ -21,7 +26,7 @@ const TrainView = ({ trainData, setTrainArr }) => {
         Train last station: {trainData.lastStation}
       </StyledP>
       <StyledButton>
-        <StyledA href={`/buyTicket/${trainData.id}`}>Buy Ticket</StyledA>
+        <StyledLink to={`/buyTicket/${trainData.id}`}>Buy Ticket</StyledLink>
       </StyledButton>
     </TrainViewWrapper>
   );

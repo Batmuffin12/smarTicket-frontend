@@ -1,5 +1,13 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import StyledTrainView from "../components/styles/StyledTrainView";
+
+const ViewTrainWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
 
 const ViewTrainsPage = () => {
   const fetchData = [
@@ -15,10 +23,274 @@ const ViewTrainsPage = () => {
       lastStation: "tel aviv",
       id: "2",
     },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
+    {
+      number: 12,
+      firstStation: "haifa",
+      lastStation: "tel aviv",
+      id: "2",
+    },
   ]; //fetch data
   const [trainArr, setTrainArr] = useState(fetchData);
   return (
-    <div>
+    <ViewTrainWrapper>
       {trainArr.map((trainData) => (
         <StyledTrainView
           key={trainData.id}
@@ -26,7 +298,7 @@ const ViewTrainsPage = () => {
           setTrainArr={setTrainArr}
         />
       ))}
-    </div>
+    </ViewTrainWrapper>
   );
 };
 

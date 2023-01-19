@@ -1,6 +1,6 @@
 import React from "react";
 import LoginForm from "./LoginForm";
-import StyledA from "./styles/StyledA";
+import StyledLink from "./styles/StyledLink";
 import StyledP from "./styles/StyledP";
 
 const LoginModal = () => {
@@ -10,7 +10,7 @@ const LoginModal = () => {
       <StyledP>
         Not signed yet?
         <br />
-        <StyledA link="/signup">sign up!</StyledA>
+        <StyledLink to="/signup">sign up!</StyledLink>
       </StyledP>
     </>
   );

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledHeader = styled.header`
   display: flex;
-  padding: ${({ theme }) => theme.sizes.headerPadding};
+  padding: ${({ theme }) => theme.sizes.mainPadding};
   flex-flow: row wrap;
   justify-content: center;
   background-image: -webkit-linear-gradient(

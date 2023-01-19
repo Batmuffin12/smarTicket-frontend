@@ -5,11 +5,7 @@ const StyledForm = styled.form`
   flex-direction: column;
   justify-items: center;
   gap: ${({ theme }) => theme.sizes.mediumSize};
-  margin: 5%;
-
-  @media (max-width: 650px) {
-    margin: 10%;
-  }
+  margin: ${({ theme }) => theme.sizes.largeSize};
 `;
 
 export default StyledForm;

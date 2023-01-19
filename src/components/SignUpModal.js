@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SignUpForm from "./SignUpForm";
-import StyledA from "./styles/StyledA";
+import StyledLink from "./styles/StyledLink";
 import StyledP from "./styles/StyledP";
 
 const SignUpModal = () => {
@@ -12,7 +12,7 @@ const SignUpModal = () => {
       <StyledP>
         already has an account?
         <br />
-        <StyledA link="/login">then log in!</StyledA>
+        <StyledLink to="/login">then log in!</StyledLink>
       </StyledP>
     </>
   );

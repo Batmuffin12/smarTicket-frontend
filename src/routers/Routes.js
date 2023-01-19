@@ -11,16 +11,17 @@ import styled from "styled-components";
 import { convertToInt } from "../utils/themeUtils";
 
 const calcProperHeight = (theme) => {
-  const { footerHeight, headerHeight, headerPadding } = theme.sizes;
+  const { footerHeight, headerHeight, mainPadding } = theme.sizes;
   const calc =
     convertToInt(footerHeight) +
     convertToInt(headerHeight) +
-    convertToInt(headerPadding) * 2;
+    convertToInt(mainPadding) * 2;
   return calc;
 };
 
 const RouterWrapper = styled.div`
   height: calc(100vh - ${({ theme }) => calcProperHeight(theme)}px);
+  overflow: auto;
 `;
 
 const AppRoutes = () => (
