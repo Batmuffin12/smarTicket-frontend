@@ -10,6 +10,7 @@ const trivials = [
     .map((method) => models.map(({ model }) => `${method}${capitalize(model)}`))
     .flat(),
   "login",
+  "silentLogin",
 ].map((name) => makeAsyncEpic(actions[name], api[name]));
 
 export default trivials;

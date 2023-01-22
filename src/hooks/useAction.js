@@ -14,6 +14,7 @@ export const useActions = (actions) => {
         {}
       ),
     //look out for the dependencies might do some problems
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [dispatch]
   );
 };

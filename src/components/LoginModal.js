@@ -9,10 +9,10 @@ const LoginModalWrapper = styled.div`
   width: 300px;
 `;
 
-const LoginModal = () => {
+const LoginModal = ({ setPressed }) => {
   return (
     <LoginModalWrapper>
-      <LoginForm />
+      <LoginForm setPressed={setPressed} />
       <StyledP>
         Not signed yet?
         <br />

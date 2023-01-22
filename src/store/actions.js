@@ -17,7 +17,8 @@ const dynamicActions = genericActions
 const actions = {
   ...dynamicActions,
   init: makeActionCreator("INIT"),
-  login: makeActionCreator("LOGIN"),
+  login: makeAsyncActionCreator("LOGIN"),
+  silentLogin: makeAsyncActionCreator("SILENT_LOGIN"),
 };
 
 export default actions;

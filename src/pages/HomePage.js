@@ -15,17 +15,20 @@ const componentActions = {
 const selectors = (state) => ({
   trains: state.Trains.data,
   trainsLoading: state.Trains.loading,
+  currentUser: state.currentUser.data,
 });
 
 const HomePage = () => {
   const { getTrains } = useActions(componentActions);
-  const { trains, trainsLoading } = useSelector(selectors);
+  const { trains, trainsLoading, currentUser } = useSelector(selectors);
 
-  console.log(trains);
+  // console.log(trains);
 
   useEffect(() => {
-    getTrains();
-  }, []);
+    // getTrains();
+    console.log(currentUser);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentUser]);
 
   return (
     <>

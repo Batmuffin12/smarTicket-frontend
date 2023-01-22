@@ -2,7 +2,7 @@ import React from "react";
 import StyledButton from "./styles/StyledButton";
 import StyledInput from "./styles/StyledInput";
 
-const Form = ({ inputs, buttons, InputWrapper, ButtonWrapper }) => (
+const Form = ({ inputs, buttons, InputWrapper, ButtonWrapper, text }) => (
   <>
     <InputWrapper>
       {inputs.map((input) => (

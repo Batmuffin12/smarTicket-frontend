@@ -11,8 +11,41 @@ const getMethods = models.reduce(
   {}
 );
 
+const silentLogin = async () => {
+  try {
+    const token = localStorage.getItem("token");
+    let response = {};
+    if (token) {
+      const { data } = await http.post(
+        "login",
+        {},
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      response = {
+        id: data.id,
+        data: data.data,
+      };
+    }
+    return response;
+  } catch (e) {
+    return e;
+  }
+};
+
+const login = async ({ email, password }) => {
+  const { data } = await http.post("login", {
+    email,
+    password,
+  });
+  return data;
+};
+
 const requests = {
   ...getMethods,
+  silentLogin,
+  login,
 };
 
 export default requests;
