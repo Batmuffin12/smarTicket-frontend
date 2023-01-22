@@ -6,7 +6,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import LoginPopUp from "components/LoginPopUp";
-import StyledButton from "components/styles/StyledButton";
 
 const selectors = (state) => ({
   currentUser: state.currentUser.data,

@@ -6,7 +6,6 @@ import { useState } from "react";
 import { useActions } from "hooks/useAction";
 import actions from "store/actions";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
 
 const InputWrapper = styled.div`
   display: flex;
