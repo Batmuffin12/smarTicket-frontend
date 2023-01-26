@@ -1,3 +1,4 @@
+import paths from "appConstants/paths";
 import StyledButton from "components/styles/StyledButton";
 import StyledH1 from "components/styles/StyledH1";
 import StyledImg from "components/styles/StyledImg";
@@ -11,7 +12,7 @@ const HomePage = () => {
       <StyledImg src={logo} alt="this is the photo alt" size="mediumImgScale" />
       <br />
       <StyledButton>
-        <StyledLink to="/explainPage">So what are we doing?</StyledLink>
+        <StyledLink to={paths.explainPage}>So what are we doing?</StyledLink>
       </StyledButton>
     </>
   );

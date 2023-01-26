@@ -37,4 +37,5 @@ export const sizes = {
 
 export const zIndexes = {
   popup: 100,
+  navDropdown: 99,
 };

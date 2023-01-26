@@ -13,6 +13,7 @@ const ItemsWrapper = styled.div`
   flex-direction: column;
   position: absolute;
   top: 100%;
+  z-index: ${({ theme }) => theme.zIndexes.navDropdown};
   background-image: -webkit-linear-gradient(
     right,
     ${({ theme }) => theme.colors.secondaryBackground},
@@ -39,7 +40,7 @@ const DropdownNavLink = ({ firstItem, items }) => {
       />
       <ItemsWrapper open={hover}>
         {items.map((item) => (
-          <NavLinkTag to={item.to} text={item.text} />
+          <NavLinkTag key={item.to} to={item.to} text={item.text} />
         ))}
       </ItemsWrapper>
     </DropdownWrapper>

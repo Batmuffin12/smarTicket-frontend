@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import paths from "appConstants/paths";
+import UserPage from "pages/Admin/UserPage";
 import ContactUs from "pages/ContactUsPage";
 import ExplainPage from "pages/ExplainPage";
 import HomePage from "pages/HomePage";
@@ -7,9 +7,9 @@ import LoginPage from "pages/LoginPage";
 import NotFound from "pages/NotFoundPage";
 import SignUpPage from "pages/SignUpPage";
 import ViewTrainsPage from "pages/ViewTrainsPage";
+import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import { convertToInt } from "utils/themeUtils";
-import AdminPage from "pages/Admin/AdminPage";
 
 const calcProperHeight = (theme) => {
   const { footerHeight, headerHeight, mainPadding } = theme.sizes;
@@ -28,14 +28,16 @@ const RouterWrapper = styled.div`
 const AppRoutes = () => (
   <RouterWrapper>
     <Routes>
-      <Route exact path="/" element={<HomePage />} />
-      <Route path="/explainPage" element={<ExplainPage />} />
-      <Route path="/contactUs" element={<ContactUs />} />
-      <Route path="/viewTrains" element={<ViewTrainsPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignUpPage />} />
-      <Route path="/admin" element={<AdminPage />} />
-      <Route path="*" element={<NotFound />} />
+      <Route exact path={paths.homePage} element={<HomePage />} />
+      <Route path={paths.explainPage} element={<ExplainPage />} />
+      <Route path={paths.contactUsPage} element={<ContactUs />} />
+      <Route path={paths.viewTrainsPage} element={<ViewTrainsPage />} />
+      <Route path={paths.loginPage} element={<LoginPage />} />
+      <Route path={paths.signUpPage} element={<SignUpPage />} />
+      <Route path={paths.admin}>
+        <Route path={paths.adminPages.users} exact element={<UserPage />} />
+      </Route>
+      <Route path={paths.notFound} element={<NotFound />} />
     </Routes>
   </RouterWrapper>
 );

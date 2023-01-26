@@ -1,3 +1,4 @@
+import paths from "appConstants/paths";
 import StyledHeader from "components/styles/StyledHeader";
 import NavLinkTag from "components/uiKit/NavLink";
 import { useState } from "react";
@@ -16,23 +17,23 @@ const Nav = () => {
   const adminLinks = [
     {
       text: "Users",
-      to: "/admin/users",
+      to: paths.adminPages.users,
     },
     {
       text: "Trains",
-      to: "/admin/trains",
+      to: paths.adminPages.trains,
     },
     {
       text: "Stations",
-      to: "/admin/stations",
+      to: paths.adminPages.stations,
     },
     {
       text: "Tickets",
-      to: "/admin/tickets",
+      to: paths.adminPages.tickets,
     },
     {
       text: "Trips",
-      to: "/admin/trips",
+      to: paths.adminPages.trips,
     },
   ];
   const firstItem = {
@@ -45,10 +46,10 @@ const Nav = () => {
 
   return (
     <StyledHeader>
-      <NavLinkTag to="/" exact="true" text="Home Page" />
-      <NavLinkTag to="/contactUs" text="Contact Us" />
-      <NavLinkTag to="/viewTrains" text="Buy a Ticket" />
-      {showLogin && <NavLinkTag to="/login" text="Login / signUp" />}
+      <NavLinkTag to={paths.homePage} exact="true" text="Home Page" />
+      <NavLinkTag to={paths.contactUsPage} text="Contact Us" />
+      <NavLinkTag to={paths.viewTrainsPage} text="Buy a Ticket" />
+      {showLogin && <NavLinkTag to={paths.loginPage} text="Login / signUp" />}
       {isAdmin && <DropdownNavLink firstItem={firstItem} items={adminLinks} />}
     </StyledHeader>
   );
