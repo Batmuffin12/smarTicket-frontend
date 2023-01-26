@@ -9,7 +9,7 @@ import SignUpPage from "pages/SignUpPage";
 import ViewTrainsPage from "pages/ViewTrainsPage";
 import styled from "styled-components";
 import { convertToInt } from "utils/themeUtils";
-import AdminPage from "pages/AdminPage";
+import AdminPage from "pages/Admin/AdminPage";
 
 const calcProperHeight = (theme) => {
   const { footerHeight, headerHeight, mainPadding } = theme.sizes;
