@@ -1,3 +1,4 @@
+import PopUp from "components/PopUp";
 import Footer from "components/uiKit/Footer";
 import { createBrowserHistory } from "history";
 import { Suspense } from "react";
@@ -24,6 +25,7 @@ const App = () => {
           <ThemeProvider theme={mainTheme}>
             <GlobalStyle />
             <Nav />
+            <PopUp />
             <AppRoutes />
             <Footer />
           </ThemeProvider>

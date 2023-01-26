@@ -34,3 +34,7 @@ export const sizes = {
   headerHeight: `45px`,
   footerHeight: `80px`,
 };
+
+export const zIndexes = {
+  popup: 100,
+};

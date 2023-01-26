@@ -1,11 +1,9 @@
-import React from "react";
-import StyledForm from "./styles/StyledForm";
-import Form from "./Form";
-import styled from "styled-components";
-import { useState } from "react";
 import { useActions } from "hooks/useAction";
+import { useState } from "react";
 import actions from "store/actions";
-import { useSelector } from "react-redux";
+import styled from "styled-components";
+import Form from "./Form";
+import StyledForm from "./styles/StyledForm";
 
 const InputWrapper = styled.div`
   display: flex;
@@ -18,14 +16,12 @@ const ButtonWrapper = styled.div`
 
 const componentActions = {
   login: actions.login,
+  setPopUpState: actions.setPopUpState,
 };
-const selectors = (state) => ({
-  currentUser: state.currentUser.data,
-});
-const LoginForm = ({ setPressed }) => {
+
+const LoginForm = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const { login } = useActions(componentActions);
-  const { currentUser } = useSelector(selectors);
 
   const changeInputValue = (e) =>
     setFormData((oldState) => ({
@@ -33,13 +29,11 @@ const LoginForm = ({ setPressed }) => {
       [e.target.name]: e.target.value,
     }));
 
-  const formSubmit = async (e) => {
-    await login({
+  const formSubmit = (e) => {
+    login({
       email: formData.email,
       password: formData.password,
     });
-    setPressed(true);
-    console.log(currentUser);
   };
 
   return (

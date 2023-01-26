@@ -5,8 +5,8 @@ import http from "./http";
 const getMethods = models.reduce(
   (preValue, currentModel) => ({
     ...preValue,
-    [`get${capitalize(currentModel.model)}`]: () =>
-      http.get(currentModel.model),
+    [`get${capitalize(currentModel.model)}`]: async () =>
+      await http.get(currentModel.model),
   }),
   {}
 );
@@ -30,16 +30,22 @@ const silentLogin = async () => {
     }
     return response;
   } catch (e) {
-    return e;
+    console.error(e);
+    return undefined;
   }
 };
 
 const login = async ({ email, password }) => {
-  const { data } = await http.post("login", {
-    email,
-    password,
-  });
-  return data;
+  try {
+    const { data } = await http.post("login", {
+      email,
+      password,
+    });
+    return data;
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
 };
 
 const requests = {

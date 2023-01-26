@@ -1,4 +1,4 @@
-import { colors, fonts, textSizes, sizes } from "./themeSettings";
+import { colors, fonts, textSizes, sizes, zIndexes } from "./themeSettings";
 
 const mainTheme = {
   colors: {
@@ -13,6 +13,7 @@ const mainTheme = {
   fonts,
   textSizes,
   sizes,
+  zIndexes,
 };
 
 export default mainTheme;

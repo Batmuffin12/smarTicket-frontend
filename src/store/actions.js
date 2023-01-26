@@ -19,6 +19,7 @@ const actions = {
   init: makeActionCreator("INIT"),
   login: makeAsyncActionCreator("LOGIN"),
   silentLogin: makeAsyncActionCreator("SILENT_LOGIN"),
+  setPopUpState: makeActionCreator("SET_POPUP_STATE"),
 };
 
 export default actions;

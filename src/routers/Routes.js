@@ -9,6 +9,7 @@ import SignUpPage from "pages/SignUpPage";
 import ViewTrainsPage from "pages/ViewTrainsPage";
 import styled from "styled-components";
 import { convertToInt } from "utils/themeUtils";
+import AdminPage from "pages/AdminPage";
 
 const calcProperHeight = (theme) => {
   const { footerHeight, headerHeight, mainPadding } = theme.sizes;
@@ -33,6 +34,7 @@ const AppRoutes = () => (
       <Route path="/viewTrains" element={<ViewTrainsPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/admin" element={<AdminPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </RouterWrapper>
