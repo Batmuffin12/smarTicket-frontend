@@ -5,6 +5,11 @@ import actions from "store/actions";
 export const init = (action$) => {
   return action$.pipe(
     ofType(actions.init),
-    mergeMap(() => [actions.silentLogin(), actions.getTrains()])
+    mergeMap(() => [
+      actions.silentLogin(),
+      actions.getTrains(),
+      actions.getStations(),
+      actions.getTrips(),
+    ])
   );
 };

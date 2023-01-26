@@ -1,4 +1,5 @@
-import Table from "components/Table";
+import TableView from "components/TableView";
+import Table from "components/uiKit/Table";
 import { useActions } from "hooks/useAction";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -20,12 +21,16 @@ const UserPage = () => {
     { headerName: "isAdmin", field: "isAdmin" },
     { headerName: "Name", field: "name" },
   ];
+
   useEffect(() => {
     getUsers();
-  }, []);
+  }, [getUsers]);
 
   return (
-    <Table columnDefs={usersDefs} rowData={users?.map((user) => user.data)} />
+    <TableView
+      columnDefs={usersDefs}
+      rowData={users?.map((user) => user.data)}
+    />
   );
 };
 
