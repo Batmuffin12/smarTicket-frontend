@@ -22,14 +22,20 @@ const TrainsPage = () => {
       headerName: "Train Number",
       field: "trainNumber",
       pinned: "left",
+      sortable: false,
+      filter: false,
     },
     {
       headerName: "Station Number",
       field: "stationNumber",
+      sortable: false,
+      filter: false,
     },
     {
       headerName: "Station",
-      field: "station",
+      field: "stationName",
+      sortable: false,
+      filter: false,
     },
     {
       headerName: "Remaining Seats",
@@ -39,32 +45,30 @@ const TrainsPage = () => {
 
   const rowDataOrganize = () => {
     let stationIndex = 0;
-    let currentTrainNum = 0;
-    return trains?.map((train) => {
-      if (currentTrainNum === 0) {
-        const { stations, ...data } = train;
-        currentTrainNum = data.trainNumber;
-        return {
-          id: train.id,
-          ...data,
+    return trains
+      .map((train) => {
+        const { ...data } = train;
+        const trainData = data.data;
+        const returnedData = trainData.stations?.map((station) => {
+          const stationStop = stations?.find(
+            (insideStation) => insideStation.id === station
+          );
+          return {
+            trainId: train.id,
+            stationNumber: ++stationIndex,
+            stationName: stationStop?.data?.name,
+            stationId: stationStop?.id,
+          };
+        });
+        stationIndex = 0;
+        returnedData[0] = {
+          trainNumber: trainData.trainNumber,
+          seats: trainData.seats,
+          ...returnedData[0],
         };
-      } else {
-        const res = train.data.stations[stationIndex]
-          ? {
-              id: train.id,
-              station: train.data.stations[stationIndex],
-              stationNumber: stationIndex,
-            }
-          : {};
-        if (res) {
-          stationIndex += 1;
-        } else {
-          stationIndex = 0;
-          currentTrainNum = 0;
-        }
-        return res;
-      }
-    });
+        return returnedData;
+      })
+      .flat();
   };
 
   return (
@@ -72,7 +76,7 @@ const TrainsPage = () => {
       columnDefs={trainsDefs}
       title={"Trains Table"}
       update={(e) => {}}
-      rowData={trains ? rowDataOrganize() : null}
+      rowData={trains ? rowDataOrganize() : []}
     />
   );
 };

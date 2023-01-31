@@ -16,7 +16,6 @@ const ButtonWrapper = styled.div`
 
 const ContactForm = () => {
   const submitForm = (e) => {
-    e.preventDefault();
     //fetch data
   };
 
