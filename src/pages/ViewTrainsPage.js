@@ -17,12 +17,9 @@ const ViewTrainsPage = () => {
   const { trains } = useSelector(selectors);
   return (
     <ViewTrainWrapper>
-      {trains?.data?.map(
-        (train) =>
-          console.log(train) || (
-            <TrainView key={train.id} id={train.id} trainData={train.data} />
-          )
-      )}
+      {trains?.data?.map((train) => (
+        <TrainView key={train.id} id={train.id} trainData={train.data} />
+      ))}
     </ViewTrainWrapper>
   );
 };
