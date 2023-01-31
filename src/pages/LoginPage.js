@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import actions from "store/actions";
 
 const selectors = (state) => ({
-  currentUser: state.currentUser.data,
+  currentUser: state.currentUser?.data,
 });
 
 const componentActions = {
