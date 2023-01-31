@@ -10,6 +10,7 @@ export const init = (action$) => {
       actions.getTrains(),
       actions.getStations(),
       actions.getTrips(),
+      actions.getTickets(),
     ])
   );
 };

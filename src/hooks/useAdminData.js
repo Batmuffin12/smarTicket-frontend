@@ -4,7 +4,7 @@ import actions from "store/actions";
 import { useActions } from "./useAction";
 
 const selectors = (state) => ({
-  currentUser: state.currentUser.data,
+  currentUser: state.currentUser?.data,
 });
 
 const componentActions = {

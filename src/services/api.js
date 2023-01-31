@@ -11,6 +11,16 @@ const getMethods = models.reduce(
   {}
 );
 
+const updateMethods = models.reduce(
+  (preValue, currentModel) => ({
+    ...preValue,
+    [`update${capitalize(currentModel.model)}`]: async (data) => {
+      await http.patch(`${currentModel.model}/update`, { data });
+    },
+  }),
+  {}
+);
+
 const silentLogin = async () => {
   try {
     const token = localStorage.getItem("token");
@@ -50,6 +60,7 @@ const login = async ({ email, password }) => {
 
 const requests = {
   ...getMethods,
+  ...updateMethods,
   silentLogin,
   login,
 };

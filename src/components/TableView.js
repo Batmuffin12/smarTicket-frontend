@@ -1,10 +1,12 @@
 import styled from "styled-components";
-import Table from "./uiKit/Table";
+import StyledH1 from "./styles/StyledH1";
+import Table from "./uiKit/Table/Table";
 
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  justify-content: space-around;
   flex-direction: column;
   align-items: center;
 `;
@@ -14,12 +16,12 @@ const TableWrapper = styled.div`
   height: 80%;
 `;
 
-const TableView = ({ rowData, columnDefs }) => {
+const TableView = ({ title, rowData, columnDefs, ...rest }) => {
   return (
     <Wrapper>
-      TODO CHANGE THIS TO PROP
+      <StyledH1>{title}</StyledH1>
       <TableWrapper>
-        <Table columnDefs={columnDefs} rowData={rowData} />
+        <Table columnDefs={columnDefs} rowData={rowData} {...rest} />
       </TableWrapper>
     </Wrapper>
   );

@@ -1,35 +1,56 @@
 import TableView from "components/TableView";
-import Table from "components/uiKit/Table";
+import {
+  booleanSetter,
+  emailValueSetter,
+} from "components/uiKit/Table/valueSetters";
 import { useActions } from "hooks/useAction";
-import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import actions from "store/actions";
-
-const componentActions = {
-  getUsers: actions.getUsers,
-};
 
 const selectors = (state) => ({
   users: state.Users.data.data,
 });
-
+const componentActions = {
+  updateUsers: actions.updateUsers,
+  getUsers: actions.getUsers,
+};
 const UserPage = () => {
-  const { getUsers } = useActions(componentActions);
+  const { updateUsers, getUsers } = useActions(componentActions);
   const { users } = useSelector(selectors);
   const usersDefs = [
-    { headerName: "Email", field: "email" },
-    { headerName: "isAdmin", field: "isAdmin" },
-    { headerName: "Name", field: "name" },
+    {
+      headerName: "Name",
+      field: "name",
+      checkboxSelection: true,
+      pinned: "left",
+      editable: false,
+    },
+    {
+      headerName: "Email",
+      field: "email",
+      valueSetter: emailValueSetter("email"),
+    },
+    {
+      headerName: "isAdmin",
+      field: "isAdmin",
+      valueSetter: booleanSetter("isAdmin"),
+    },
   ];
-
-  useEffect(() => {
-    getUsers();
-  }, [getUsers]);
-
   return (
     <TableView
       columnDefs={usersDefs}
-      rowData={users?.map((user) => user.data)}
+      title={"Users Table"}
+      update={(e) => {
+        console.log(e, users);
+        console.log("now update users");
+        updateUsers(e);
+        //FIXME: only works for now
+        console.log("now get users");
+        getUsers();
+      }}
+      rowData={users?.map(
+        (user) => console.log(user, "in map") || { id: user.id, ...user.data }
+      )}
     />
   );
 };

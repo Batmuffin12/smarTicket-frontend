@@ -8,7 +8,35 @@ const dynamicReduces = models
     [model]: composeReducers(
       makeAsyncReducer(actions[customMethodName || `get${capitalize(model)}`], {
         defaultData: [],
-      })
+      }),
+      makeAsyncReducer(
+        actions[customMethodName || `update${capitalize(model)}`],
+        {
+          defaultData: [],
+          shouldDestroyData: false,
+          shouldDestroyDataOnError: false,
+          dataGetter: ({ data }, { payload }) => {
+            console.log(
+              data?.data
+                ? [
+                    ...data?.data.map((x) => ({
+                      id: x.id,
+                      data: { ...x.data },
+                    })),
+                  ]
+                : []
+            );
+            return data?.data
+              ? [
+                  ...data?.data.map((x) => ({
+                    id: x.id,
+                    data: { ...x.data },
+                  })),
+                ]
+              : [];
+          },
+        }
+      )
     ),
   }))
   .reduce((prev, curr) => ({ ...prev, ...curr }), {});
@@ -21,7 +49,18 @@ const reducers = {
     }),
     makeAsyncReducer(actions.login, {
       defaultData: undefined,
-    })
+    }),
+    makeReducer(
+      {
+        [actions.signOut]: (state, { payload }) => {
+          localStorage.setItem("token", null);
+          return null;
+        },
+      },
+      {
+        defaultState: undefined,
+      }
+    )
   ),
   popUp: makeReducer(
     {

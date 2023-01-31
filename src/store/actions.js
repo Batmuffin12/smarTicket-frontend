@@ -18,6 +18,7 @@ const actions = {
   ...dynamicActions,
   init: makeActionCreator("INIT"),
   login: makeAsyncActionCreator("LOGIN"),
+  signOut: makeActionCreator("SIGN_OUT"),
   silentLogin: makeAsyncActionCreator("SILENT_LOGIN"),
   setPopUpState: makeActionCreator("SET_POPUP_STATE"),
 };

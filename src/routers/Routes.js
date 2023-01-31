@@ -1,5 +1,9 @@
 import paths from "appConstants/paths";
 import { useAdminData } from "hooks/useAdminData";
+import StationsPage from "pages/Admin/StationsPage";
+import TicketsPage from "pages/Admin/TicketsPage";
+import TrainsPage from "pages/Admin/TrainsPage";
+import TripsPage from "pages/Admin/TripsPage";
 import UserPage from "pages/Admin/UserPage";
 import ContactUs from "pages/ContactUsPage";
 import ExplainPage from "pages/ExplainPage";
@@ -8,7 +12,6 @@ import LoginPage from "pages/LoginPage";
 import NotFound from "pages/NotFoundPage";
 import SignUpPage from "pages/SignUpPage";
 import ViewTrainsPage from "pages/ViewTrainsPage";
-import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import { convertToInt } from "utils/themeUtils";
@@ -41,6 +44,22 @@ const AppRoutes = () => {
         <Route path={paths.signUpPage} element={<SignUpPage />} />
         <Route path={paths.admin}>
           <Route path={paths.adminPages.users} exact element={<UserPage />} />
+          <Route
+            path={paths.adminPages.trains}
+            exact
+            element={<TrainsPage />}
+          />
+          <Route
+            path={paths.adminPages.stations}
+            exact
+            element={<StationsPage />}
+          />
+          <Route
+            path={paths.adminPages.tickets}
+            exact
+            element={<TicketsPage />}
+          />
+          <Route path={paths.adminPages.trips} exact element={<TripsPage />} />
         </Route>
         <Route path={paths.notFound} element={<NotFound />} />
       </Routes>

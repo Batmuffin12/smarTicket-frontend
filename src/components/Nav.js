@@ -1,17 +1,24 @@
 import paths from "appConstants/paths";
 import StyledHeader from "components/styles/StyledHeader";
 import NavLinkTag from "components/uiKit/NavLink";
+import { useActions } from "hooks/useAction";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import actions from "store/actions";
 import DropdownNavLink from "./DropdownNavLink";
+import { StyledNavButton } from "./styles/StyledNavLink";
 
 const selectors = (state) => ({
-  currentUser: state.currentUser.data,
+  currentUser: state.currentUser?.data,
 });
+const componentActions = {
+  signOut: actions.signOut,
+};
 
 const Nav = () => {
   const { currentUser } = useSelector(selectors);
+  const { signOut } = useActions(componentActions);
   const [isAdmin, setIsAdmin] = useState(false);
   const showLogin = !currentUser?.data;
   const adminLinks = [
@@ -51,6 +58,15 @@ const Nav = () => {
       <NavLinkTag to={paths.viewTrainsPage} text="Buy a Ticket" />
       {showLogin && <NavLinkTag to={paths.loginPage} text="Login / signUp" />}
       {isAdmin && <DropdownNavLink firstItem={firstItem} items={adminLinks} />}
+      {!showLogin && (
+        <StyledNavButton
+          onClick={() => {
+            signOut();
+          }}
+        >
+          Sign Out
+        </StyledNavButton>
+      )}
     </StyledHeader>
   );
 };
