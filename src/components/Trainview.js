@@ -1,5 +1,6 @@
-import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { findStationByID } from "utils/trainsUtils";
 import StyledButton from "./styles/StyledButton";
 import StyledLink from "./styles/StyledLink";
 import StyledP from "./styles/StyledP";
@@ -14,19 +15,34 @@ const TrainViewWrapper = styled.div`
   width: 300px;
   height: 200px;
 `;
-
-const TrainView = ({ trainData, setTrainArr }) => {
+const selectors = (state) => ({
+  stations: state.Stations.data.data,
+});
+const TrainView = ({ id, trainData }) => {
+  const { stations } = useSelector(selectors);
   return (
     <TrainViewWrapper>
-      <StyledP textAlign="left">Train number: {trainData.number} </StyledP>
+      <StyledP textAlign="left">Train number: {trainData.trainNumber} </StyledP>
       <StyledP textAlign="left">
-        Train first station : {trainData.firstStation}
+        Train first station :{" "}
+        {stations
+          ? findStationByID({
+              trainStationId: trainData.startingStation,
+              stations,
+            })?.data?.name
+          : ""}
       </StyledP>
       <StyledP textAlign="left">
-        Train last station: {trainData.lastStation}
+        Train last station:{" "}
+        {stations
+          ? findStationByID({
+              trainStationId: trainData.endingStation,
+              stations,
+            })?.data?.name
+          : ""}
       </StyledP>
       <StyledButton>
-        <StyledLink to={`/buyTicket/${trainData.id}`}>Buy Ticket</StyledLink>
+        <StyledLink to={`/buyTicket/${id}`}>Buy Ticket</StyledLink>
       </StyledButton>
     </TrainViewWrapper>
   );

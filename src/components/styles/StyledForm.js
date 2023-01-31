@@ -6,8 +6,8 @@ const StyledForm = styled.form`
   flex-direction: column;
   height: 100%;
   justify-items: center;
-  margin: ${({ theme }) => theme.sizes.largeSize};
-  justify-content: space-between;
+  margin: ${({ theme }) => theme.sizes.largeSize} auto;
+  justify-content: space-evenly;
 `;
 
 export default StyledForm;

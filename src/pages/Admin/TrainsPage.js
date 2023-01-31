@@ -1,8 +1,8 @@
 import TableView from "components/TableView";
 import { useActions } from "hooks/useAction";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import actions from "store/actions";
+import { findStationByID } from "utils/trainsUtils";
 
 const selectors = (state) => ({
   trains: state.Trains.data.data,
@@ -50,9 +50,10 @@ const TrainsPage = () => {
         const { ...data } = train;
         const trainData = data.data;
         const returnedData = trainData.stations?.map((station) => {
-          const stationStop = stations?.find(
-            (insideStation) => insideStation.id === station
-          );
+          const stationStop = findStationByID({
+            trainStationId: station,
+            stations,
+          });
           return {
             trainId: train.id,
             stationNumber: ++stationIndex,

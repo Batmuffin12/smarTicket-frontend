@@ -1,5 +1,5 @@
 import TrainView from "components/Trainview";
-import { useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const ViewTrainWrapper = styled.div`
@@ -9,31 +9,20 @@ const ViewTrainWrapper = styled.div`
   flex-wrap: wrap;
 `;
 
+const selectors = (state) => ({
+  trains: state.Trains.data,
+});
+
 const ViewTrainsPage = () => {
-  const fetchData = [
-    {
-      number: 13,
-      firstStation: "tel aviv",
-      lastStation: "haifa",
-      id: "1",
-    },
-    {
-      number: 12,
-      firstStation: "haifa",
-      lastStation: "tel aviv",
-      id: "2",
-    },
-  ]; //fetch data
-  const [trainArr, setTrainArr] = useState(fetchData);
+  const { trains } = useSelector(selectors);
   return (
     <ViewTrainWrapper>
-      {trainArr.map((trainData) => (
-        <TrainView
-          key={trainData.id}
-          trainData={trainData}
-          setTrainArr={setTrainArr}
-        />
-      ))}
+      {trains?.data?.map(
+        (train) =>
+          console.log(train) || (
+            <TrainView key={train.id} id={train.id} trainData={train.data} />
+          )
+      )}
     </ViewTrainWrapper>
   );
 };
