@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import StyledButton from "./styles/StyledButton";
 import StyledH1 from "./styles/StyledH1";
 import Table from "./uiKit/Table/Table";
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: 95%;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -16,10 +17,28 @@ const TableWrapper = styled.div`
   height: 80%;
 `;
 
-const TableView = ({ title, rowData, columnDefs, isDataLoading, ...rest }) => {
+const TableHeaderWrapper = styled.div`
+  display: flex;
+  width: 95%;
+  justify-content: flex-start;
+  padding: 0 10px;
+  justify-content: space-between;
+`;
+
+const TableView = ({
+  title,
+  rowData,
+  columnDefs,
+  isDataLoading,
+  getItems,
+  ...rest
+}) => {
   return (
     <Wrapper>
-      <StyledH1>{title}</StyledH1>
+      <TableHeaderWrapper>
+        <StyledH1>{title}</StyledH1>
+        <StyledButton onClick={getItems}>Refresh</StyledButton>
+      </TableHeaderWrapper>
       <TableWrapper>
         <Table
           columnDefs={columnDefs}

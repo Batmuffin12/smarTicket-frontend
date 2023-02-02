@@ -15,9 +15,10 @@ const selectors = (state) => ({
 const componentActions = {
   updateUsers: actions.updateUsers,
   deleteUsers: actions.deleteUsers,
+  getUsers: actions.getUsers,
 };
 const UserPage = () => {
-  const { updateUsers, deleteUsers } = useActions(componentActions);
+  const { updateUsers, deleteUsers, getUsers } = useActions(componentActions);
   const { users, loading } = useSelector(selectors);
   const usersDefs = [
     {
@@ -51,6 +52,7 @@ const UserPage = () => {
       deleteItems={(e) => {
         deleteUsers(e);
       }}
+      getItems={() => getUsers()}
       rowData={users?.map((user) => ({ id: user.id, ...user.data }))}
       isDataLoading={loading}
     />
