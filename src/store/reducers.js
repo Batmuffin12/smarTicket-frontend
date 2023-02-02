@@ -36,6 +36,19 @@ const dynamicReduces = models
             return { data: result };
           },
         }
+      ),
+      makeAsyncReducer(
+        actions[customMethodName || `delete${capitalize(model)}`],
+        {
+          defaultData: [],
+          shouldDestroyData: false,
+          shouldDestroyDataOnError: false,
+          dataGetter: ({ data }, { payload }) => {
+            return {
+              data: data.data.filter((item) => !payload.data.includes(item.id)),
+            };
+          },
+        }
       )
     ),
   }))

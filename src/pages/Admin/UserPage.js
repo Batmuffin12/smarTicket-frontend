@@ -14,9 +14,10 @@ const selectors = (state) => ({
 });
 const componentActions = {
   updateUsers: actions.updateUsers,
+  deleteUsers: actions.deleteUsers,
 };
 const UserPage = () => {
-  const { updateUsers } = useActions(componentActions);
+  const { updateUsers, deleteUsers } = useActions(componentActions);
   const { users, loading } = useSelector(selectors);
   const usersDefs = [
     {
@@ -39,12 +40,16 @@ const UserPage = () => {
     },
   ];
 
+  console.log(users);
   return (
     <TableView
       columnDefs={usersDefs}
       title={"Users Table"}
       update={(e) => {
         updateUsers(e);
+      }}
+      deleteItems={(e) => {
+        deleteUsers(e);
       }}
       rowData={users?.map((user) => ({ id: user.id, ...user.data }))}
       isDataLoading={loading}

@@ -1,6 +1,7 @@
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import { AgGridReact } from "ag-grid-react";
+import StyledButton from "components/styles/StyledButton";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
@@ -14,6 +15,7 @@ const Table = ({
   rowData,
   columnDefs,
   update,
+  deleteItems,
   isDataLoading,
 }) => {
   const defaultColumnDefs = {
@@ -55,6 +57,11 @@ const Table = ({
     return !(!isDataLoading && (!rowData || rowData.length === 0));
   };
 
+  const deleteOnClick = () => {
+    const selectedRowsData = agGridApi.getSelectedRows()?.map((row) => row.id);
+    deleteItems(selectedRowsData);
+  };
+
   return (
     <TableWrapper className="ag-theme-alpine">
       <AgGridReact
@@ -64,7 +71,11 @@ const Table = ({
         columnDefs={columnDefs}
         defaultColDef={defaultColumnDefs}
         suppressNoRowsOverlay={suppressNoRowsOverlay}
+        rowSelection="multiple"
+        enableCellTextSelection
+        animateRows
       />
+      <StyledButton onClick={deleteOnClick}>delete Items</StyledButton>
     </TableWrapper>
   );
 };

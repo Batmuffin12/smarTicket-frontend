@@ -21,6 +21,19 @@ const updateMethods = models.reduce(
   {}
 );
 
+const deleteMethods = models.reduce(
+  (preValue, currentModel) => ({
+    ...preValue,
+    [`delete${capitalize(currentModel.model)}`]: async (data) => {
+      const res = await http.delete(
+        `${currentModel.model}?${data.map((id) => `id=${id}`).join("&")}`
+      );
+      return res;
+    },
+  }),
+  {}
+);
+
 const silentLogin = async () => {
   try {
     const token = localStorage.getItem("token");
@@ -61,6 +74,7 @@ const login = async ({ email, password }) => {
 const requests = {
   ...getMethods,
   ...updateMethods,
+  ...deleteMethods,
   silentLogin,
   login,
 };

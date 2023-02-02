@@ -1,6 +1,7 @@
 const genericActions = [
   "get",
   "update",
+  "delete",
   //  "add", "addMany", "update", "delete"
 ];
 
