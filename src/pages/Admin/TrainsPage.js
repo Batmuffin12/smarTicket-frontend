@@ -59,13 +59,15 @@ const TrainsPage = () => {
             stationNumber: ++stationIndex,
             stationName: stationStop?.data?.name,
             stationId: stationStop?.id,
+            trainNumber: null,
+            seats: null,
           };
         });
         stationIndex = 0;
         returnedData[0] = {
+          ...returnedData[0],
           trainNumber: trainData.trainNumber,
           seats: trainData.seats,
-          ...returnedData[0],
         };
         return returnedData;
       })

@@ -1,8 +1,3 @@
-const genericActions = [
-  "get",
-  "update",
-  "delete",
-  //  "add", "addMany", "update", "delete"
-];
+const genericActions = ["get", "update", "delete", "create"];
 
 export default genericActions;

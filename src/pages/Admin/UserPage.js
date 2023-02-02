@@ -16,17 +16,17 @@ const componentActions = {
   updateUsers: actions.updateUsers,
   deleteUsers: actions.deleteUsers,
   getUsers: actions.getUsers,
+  createUsers: actions.createUsers,
 };
 const UserPage = () => {
-  const { updateUsers, deleteUsers, getUsers } = useActions(componentActions);
+  const { updateUsers, deleteUsers, getUsers, createUsers } =
+    useActions(componentActions);
   const { users, loading } = useSelector(selectors);
   const usersDefs = [
     {
       headerName: "Name",
       field: "name",
       checkboxSelection: true,
-      pinned: "left",
-      editable: false,
     },
     {
       headerName: "Email",
@@ -51,6 +51,10 @@ const UserPage = () => {
       }}
       deleteItems={(e) => {
         deleteUsers(e);
+      }}
+      addItems={(e) => {
+        console.log(e);
+        createUsers(e.data);
       }}
       getItems={() => getUsers()}
       rowData={users?.map((user) => ({ id: user.id, ...user.data }))}

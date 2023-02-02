@@ -11,7 +11,6 @@ export const emailValueSetter = (key) => (params) => {
   //   "this is in email regex"
   // );
   if (emailRegex.test(params.newValue)) {
-    console.log(emailRegex.test(params.newValue), "inside if");
     params.data[key] = params.newValue;
     return true;
   }

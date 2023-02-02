@@ -49,6 +49,21 @@ const dynamicReduces = models
             };
           },
         }
+      ),
+      makeAsyncReducer(
+        actions[customMethodName || `create${capitalize(model)}`],
+        {
+          defaultData: [],
+          shouldDestroyData: false,
+          shouldDestroyDataOnError: false,
+          dataGetter: ({ data }, { payload }) => {
+            console.log(data.data);
+            const newItem = { ...payload.data };
+            return {
+              data: [...data.data, newItem],
+            };
+          },
+        }
       )
     ),
   }))

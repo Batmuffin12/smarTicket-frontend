@@ -4,6 +4,7 @@ import { AgGridReact } from "ag-grid-react";
 import StyledButton from "components/styles/StyledButton";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { valueFormatter } from "./valueFormatter";
 
 const TableWrapper = styled.div`
   width: 100%;
@@ -15,6 +16,7 @@ const Table = ({
   rowData,
   columnDefs,
   update,
+  addItems,
   deleteItems,
   isDataLoading,
 }) => {
@@ -24,9 +26,13 @@ const Table = ({
     filter: true,
     resizable: true,
     filterParams: { newRowsAction: true },
+    valueFormatter: valueFormatter,
     ...customDefaultColumnDefs,
   };
 
+  const gridOptions = {
+    pinnedTopRowData: [{}],
+  };
   const [agGridApi, setAgGridApi] = useState();
 
   useEffect(() => {
@@ -41,7 +47,11 @@ const Table = ({
   };
 
   const onCellEditingStopped = (params) => {
-    if (params.valueChanged && params.newValue !== params.oldValue) {
+    if (
+      params.data.id &&
+      params.valueChanged &&
+      params.newValue !== params.oldValue
+    ) {
       update({
         id: params.data.id,
         updates: {
@@ -50,6 +60,11 @@ const Table = ({
             : params.newValue,
         },
       });
+    } else {
+      if (isPinnedRowDataCompleted(params)) {
+        addItems(params);
+        agGridApi.setPinnedTopRowData([{}]);
+      }
     }
   };
 
@@ -62,9 +77,17 @@ const Table = ({
     deleteItems(selectedRowsData);
   };
 
+  const isPinnedRowDataCompleted = (params) => {
+    if (params.rowPinned === "top") {
+      return columnDefs.every((def) => params?.data[def.field] !== undefined);
+    }
+    return false;
+  };
+
   return (
     <TableWrapper className="ag-theme-alpine">
       <AgGridReact
+        gridOptions={gridOptions}
         onGridReady={onTableGridReady}
         onCellEditingStopped={onCellEditingStopped}
         rowData={isDataLoading ? null : rowData}

@@ -34,6 +34,16 @@ const deleteMethods = models.reduce(
   {}
 );
 
+const createMethods = models.reduce(
+  (preValue, currentModel) => ({
+    ...preValue,
+    [`create${capitalize(currentModel.model)}`]: async (data) => {
+      return await http.post(`${currentModel.model}/create`, { data });
+    },
+  }),
+  {}
+);
+
 const silentLogin = async () => {
   try {
     const token = localStorage.getItem("token");
@@ -75,6 +85,7 @@ const requests = {
   ...getMethods,
   ...updateMethods,
   ...deleteMethods,
+  ...createMethods,
   silentLogin,
   login,
 };
