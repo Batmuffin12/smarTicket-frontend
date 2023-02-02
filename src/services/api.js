@@ -15,7 +15,7 @@ const updateMethods = models.reduce(
   (preValue, currentModel) => ({
     ...preValue,
     [`update${capitalize(currentModel.model)}`]: async (data) => {
-      await http.patch(`${currentModel.model}/update`, { data });
+      return await http.patch(`${currentModel.model}/update`, { data });
     },
   }),
   {}

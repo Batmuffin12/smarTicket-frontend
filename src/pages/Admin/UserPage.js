@@ -1,4 +1,5 @@
 import TableView from "components/TableView";
+import { fixBooleanValue } from "components/uiKit/Table/fixValues";
 import {
   booleanSetter,
   emailValueSetter,
@@ -9,14 +10,14 @@ import actions from "store/actions";
 
 const selectors = (state) => ({
   users: state.Users.data.data,
+  loading: state.Users.loading,
 });
 const componentActions = {
   updateUsers: actions.updateUsers,
-  getUsers: actions.getUsers,
 };
 const UserPage = () => {
-  const { updateUsers, getUsers } = useActions(componentActions);
-  const { users } = useSelector(selectors);
+  const { updateUsers } = useActions(componentActions);
+  const { users, loading } = useSelector(selectors);
   const usersDefs = [
     {
       headerName: "Name",
@@ -34,23 +35,19 @@ const UserPage = () => {
       headerName: "isAdmin",
       field: "isAdmin",
       valueSetter: booleanSetter("isAdmin"),
+      formatValue: fixBooleanValue,
     },
   ];
+
   return (
     <TableView
       columnDefs={usersDefs}
       title={"Users Table"}
       update={(e) => {
-        console.log(e, users);
-        console.log("now update users");
         updateUsers(e);
-        //FIXME: only works for now
-        console.log("now get users");
-        getUsers();
       }}
-      rowData={users?.map(
-        (user) => console.log(user, "in map") || { id: user.id, ...user.data }
-      )}
+      rowData={users?.map((user) => ({ id: user.id, ...user.data }))}
+      isDataLoading={loading}
     />
   );
 };

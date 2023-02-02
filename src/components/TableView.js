@@ -16,12 +16,17 @@ const TableWrapper = styled.div`
   height: 80%;
 `;
 
-const TableView = ({ title, rowData, columnDefs, ...rest }) => {
+const TableView = ({ title, rowData, columnDefs, isDataLoading, ...rest }) => {
   return (
     <Wrapper>
       <StyledH1>{title}</StyledH1>
       <TableWrapper>
-        <Table columnDefs={columnDefs} rowData={rowData} {...rest} />
+        <Table
+          columnDefs={columnDefs}
+          rowData={rowData}
+          isDataLoading={isDataLoading}
+          {...rest}
+        />
       </TableWrapper>
     </Wrapper>
   );

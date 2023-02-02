@@ -16,24 +16,24 @@ const dynamicReduces = models
           shouldDestroyData: false,
           shouldDestroyDataOnError: false,
           dataGetter: ({ data }, { payload }) => {
-            console.log(
-              data?.data
-                ? [
-                    ...data?.data.map((x) => ({
-                      id: x.id,
-                      data: { ...x.data },
-                    })),
-                  ]
-                : []
-            );
-            return data?.data
+            const result = data?.data
               ? [
-                  ...data?.data.map((x) => ({
-                    id: x.id,
-                    data: { ...x.data },
-                  })),
+                  ...data?.data.map((x) => {
+                    return payload?.data?.id === x.id
+                      ? {
+                          id: x.id,
+                          data: {
+                            ...payload.data.data,
+                          },
+                        }
+                      : {
+                          id: x.id,
+                          data: { ...x.data },
+                        };
+                  }),
                 ]
               : [];
+            return { data: result };
           },
         }
       )
