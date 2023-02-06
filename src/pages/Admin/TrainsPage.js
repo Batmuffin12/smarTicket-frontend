@@ -2,7 +2,7 @@ import TableView from "components/TableView";
 import { useActions } from "hooks/useAction";
 import { useSelector } from "react-redux";
 import actions from "store/actions";
-import { findStationByID } from "utils/trainsUtils";
+import { findXById } from "utils/generalUtils";
 
 const selectors = (state) => ({
   trains: state.Trains.data.data,
@@ -11,10 +11,13 @@ const selectors = (state) => ({
 const componentActions = {
   updateTrains: actions.updateTrains,
   getTrains: actions.getTrains,
+  createTrains: actions.createTrains,
+  deleteTrains: actions.deleteTrains,
 };
 
 const TrainsPage = () => {
-  const { updateTrains, getTrains } = useActions(componentActions);
+  const { updateTrains, getTrains, createTrains, deleteTrains } =
+    useActions(componentActions);
   const { trains, stations } = useSelector(selectors);
 
   const trainsDefs = [
@@ -24,6 +27,7 @@ const TrainsPage = () => {
       pinned: "left",
       sortable: false,
       filter: false,
+      checkboxSelection: true,
     },
     {
       headerName: "Station Number",
@@ -50,9 +54,9 @@ const TrainsPage = () => {
         const { ...data } = train;
         const trainData = data.data;
         const returnedData = trainData.stations?.map((station) => {
-          const stationStop = findStationByID({
-            trainStationId: station,
-            stations,
+          const stationStop = findXById({
+            id: station,
+            models: stations,
           });
           return {
             trainId: train.id,
@@ -78,7 +82,10 @@ const TrainsPage = () => {
     <TableView
       columnDefs={trainsDefs}
       title={"Trains Table"}
-      update={(e) => {}}
+      update={(e) => updateTrains(e)}
+      getItems={() => getTrains()}
+      addItems={(e) => createTrains(e.data)}
+      deleteItems={(e) => console.log(e) || deleteTrains(e)}
       rowData={trains ? rowDataOrganize() : []}
     />
   );

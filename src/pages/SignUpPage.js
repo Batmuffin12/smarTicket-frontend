@@ -1,9 +1,26 @@
-import React from "react";
 import SignUpModal from "components/SignUpModal";
 import StyledModal from "components/styles/StyledModal";
 import StyledModalPageWrapper from "components/styles/StyledModalPageWrapper";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
+const selectors = (state) => ({
+  currentUser: state.currentUser?.data,
+});
+
+const SignUpPage = () => {
+  const { currentUser } = useSelector(selectors);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(currentUser);
+    if (currentUser) {
+      navigate("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentUser, navigate]);
+
   return (
     <StyledModalPageWrapper>
       <StyledModal isOpen={true}>
@@ -13,4 +30,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignUpPage;

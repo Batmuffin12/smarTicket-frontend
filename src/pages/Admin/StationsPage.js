@@ -9,9 +9,12 @@ const selectors = (state) => ({
 const componentActions = {
   updateStations: actions.updateStations,
   getStations: actions.getStations,
+  createStations: actions.createStations,
+  deleteStations: actions.deleteStations,
 };
 const StationsPage = () => {
-  const { updateStations, getStations } = useActions(componentActions);
+  const { updateStations, getStations, createStations, deleteStations } =
+    useActions(componentActions);
   const { stations } = useSelector(selectors);
   const stationsDefs = [
     {
@@ -19,12 +22,10 @@ const StationsPage = () => {
       pinned: "left",
       field: "stationNumber",
       checkboxSelection: true,
-      editable: false,
     },
     {
       headerName: "Name",
       field: "name",
-      editable: false,
     },
   ];
   let stationNumber = 0;
@@ -32,13 +33,14 @@ const StationsPage = () => {
     <TableView
       columnDefs={stationsDefs}
       title={"Stations Table"}
-      update={(e) => {}}
+      update={(e) => updateStations(e)}
+      getItems={(e) => getStations()}
+      addItems={(e) => createStations(e.data)}
+      deleteItems={(e) => deleteStations(e)}
       rowData={stations?.map((station) => {
         stationNumber++;
         station.data.stationNumber = stationNumber;
-        return (
-          console.log(station, "in map") || { id: station.id, ...station.data }
-        );
+        return { id: station.id, ...station.data };
       })}
     />
   );

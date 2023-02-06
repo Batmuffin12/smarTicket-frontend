@@ -81,6 +81,18 @@ const login = async ({ email, password }) => {
   }
 };
 
+const register = async (userDetails) => {
+  try {
+    const { data } = await http.post("register", {
+      ...userDetails,
+    });
+    return data;
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
+};
+
 const requests = {
   ...getMethods,
   ...updateMethods,
@@ -88,6 +100,7 @@ const requests = {
   ...createMethods,
   silentLogin,
   login,
+  register,
 };
 
 export default requests;

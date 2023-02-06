@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { findStationByID } from "utils/trainsUtils";
+import { findXById } from "utils/generalUtils";
 import StyledButton from "./styles/StyledButton";
 import StyledLink from "./styles/StyledLink";
 import StyledP from "./styles/StyledP";
@@ -26,18 +26,18 @@ const TrainView = ({ id, trainData }) => {
       <StyledP textAlign="left">
         Train first station :{" "}
         {stations
-          ? findStationByID({
-              trainStationId: trainData.startingStation,
-              stations,
+          ? findXById({
+              id: trainData.startingStation,
+              models: stations,
             })?.data?.name
           : ""}
       </StyledP>
       <StyledP textAlign="left">
         Train last station:{" "}
         {stations
-          ? findStationByID({
-              trainStationId: trainData.endingStation,
-              stations,
+          ? findXById({
+              id: trainData.endingStation,
+              models: stations,
             })?.data?.name
           : ""}
       </StyledP>

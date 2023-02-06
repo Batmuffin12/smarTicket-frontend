@@ -11,6 +11,7 @@ const trivials = [
     .flat(),
   "login",
   "silentLogin",
+  "register",
 ].map((name) => makeAsyncEpic(actions[name], api[name]));
 
 export default trivials;

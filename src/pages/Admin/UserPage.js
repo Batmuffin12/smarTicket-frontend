@@ -53,7 +53,6 @@ const UserPage = () => {
         deleteUsers(e);
       }}
       addItems={(e) => {
-        console.log(e);
         createUsers(e.data);
       }}
       getItems={() => getUsers()}

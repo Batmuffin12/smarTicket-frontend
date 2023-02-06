@@ -88,7 +88,15 @@ const reducers = {
       {
         defaultState: undefined,
       }
-    )
+    ),
+    makeAsyncReducer(actions.register, {
+      defaultData: undefined,
+      dataGetter: ({ data }, { payload }) => {
+        console.log(payload);
+        localStorage.setItem("token", payload.data.token);
+        return payload.data;
+      },
+    })
   ),
   popUp: makeReducer(
     {

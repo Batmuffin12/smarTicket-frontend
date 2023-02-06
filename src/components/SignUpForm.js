@@ -1,7 +1,15 @@
-import React from "react";
-import StyledForm from "./styles/StyledForm";
-import Form from "./Form";
+import { useActions } from "hooks/useAction";
+import actions from "store/actions";
 import styled from "styled-components";
+import {
+  validateCreditCSC,
+  validateCreditNumber,
+  validateEmail,
+  validatePassword,
+  validItems,
+} from "utils/validSignUpUtils";
+import Form from "./Form";
+import StyledForm from "./styles/StyledForm";
 
 const InputWrapper = styled.div`
   display: flex;
@@ -12,20 +20,36 @@ const ButtonWrapper = styled.div`
   display: flex;
 `;
 
-const SignUpForm = (props) => {
-  const clickNextPhase = (e) => {
-    props.setPhase(props.phase + 1);
+const componentActions = {
+  setPopUpState: actions.setPopUpState,
+};
+
+const SignUpForm = ({
+  phase,
+  setPhase,
+  formSubmit,
+  addInputData,
+  addFileData,
+  information,
+}) => {
+  const { setPopUpState } = useActions(componentActions);
+
+  const clickNextPhase = ({ inputs = [], next, validFuncs }) => {
+    if (validItems({ items: inputs, obj: information, validFuncs })) {
+      setPhase(phase + next);
+      setPopUpState({
+        text: null,
+        open: false,
+      });
+    } else {
+      setPopUpState({
+        text: "one of the fields isn't right.",
+        open: true,
+      });
+    }
   };
 
-  const clickPrevPhase = (e) => {
-    props.setPhase(props.phase - 1);
-  };
-
-  const formSubmit = (e) => {
-    //fetch data
-  };
-
-  switch (props.phase) {
+  switch (phase) {
     case 1:
       return (
         <StyledForm>
@@ -33,16 +57,25 @@ const SignUpForm = (props) => {
             InputWrapper={InputWrapper}
             inputs={[
               {
+                onChange: addInputData,
                 name: "name",
+                type: "text",
+                placeholder: "Name",
+              },
+              {
+                onChange: addInputData,
+                name: "email",
                 type: "email",
                 placeholder: "Email",
               },
               {
+                onChange: addInputData,
                 name: "password",
                 type: "password",
                 placeholder: "Password",
               },
               {
+                onChange: addInputData,
                 name: "confirmPassword",
                 type: "password",
                 placeholder: "Confirm Password",
@@ -52,7 +85,12 @@ const SignUpForm = (props) => {
             buttons={[
               {
                 name: "nextPhase",
-                onClick: clickNextPhase,
+                onClick: () =>
+                  clickNextPhase({
+                    inputs: ["name", "email", "password", "confirmPassword"],
+                    next: 1,
+                    validFuncs: [validateEmail, validatePassword],
+                  }),
                 text: "Next Phase",
               },
             ]}
@@ -66,19 +104,22 @@ const SignUpForm = (props) => {
           <Form
             inputs={[
               {
-                name: "creditNumber",
+                onChange: addInputData,
+                name: "cardNum",
                 type: "text",
                 placeholder: "Credit Card Number",
               },
               {
-                name: "creditValid",
+                onChange: addInputData,
+                name: "cardValid",
                 type: "month",
                 placeholder: "",
               },
               {
-                name: "creditCVC",
+                onChange: addInputData,
+                name: "cardCSC",
                 type: "text",
-                placeholder: "Credit Card CVC",
+                placeholder: "Credit Card CSC",
               },
             ]}
             InputWrapper={InputWrapper}
@@ -86,12 +127,20 @@ const SignUpForm = (props) => {
             buttons={[
               {
                 name: "nextPhase",
-                onClick: clickNextPhase,
+                onClick: () =>
+                  clickNextPhase({
+                    inputs: ["cardNum", "cardValid", "cardCSC"],
+                    next: 1,
+                    validFuncs: [validateCreditNumber, validateCreditCSC],
+                  }),
                 text: "Next Phase",
               },
               {
                 name: "back",
-                onClick: clickPrevPhase,
+                onClick: () =>
+                  clickNextPhase({
+                    next: -1,
+                  }),
                 text: "Edit email and password",
               },
             ]}
@@ -107,7 +156,8 @@ const SignUpForm = (props) => {
             ButtonWrapper={ButtonWrapper}
             inputs={[
               {
-                name: "image",
+                onChange: addFileData,
+                name: "img",
                 type: "file",
               },
             ]}
@@ -120,7 +170,10 @@ const SignUpForm = (props) => {
               },
               {
                 name: "back",
-                onClick: clickPrevPhase,
+                onClick: () =>
+                  clickNextPhase({
+                    next: -1,
+                  }),
                 text: "Edit card details",
               },
             ]}
