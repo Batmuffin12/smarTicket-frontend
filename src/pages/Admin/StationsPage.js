@@ -35,7 +35,7 @@ const StationsPage = () => {
       title={"Stations Table"}
       update={(e) => updateStations(e)}
       getItems={(e) => getStations()}
-      addItems={(e) => createStations(e.data)}
+      addItems={(e) => createStations({ name: e.data.name })}
       deleteItems={(e) => deleteStations(e)}
       rowData={stations?.map((station) => {
         stationNumber++;
