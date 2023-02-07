@@ -14,7 +14,6 @@ const SignUpPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(currentUser);
     if (currentUser) {
       navigate("/");
     }
