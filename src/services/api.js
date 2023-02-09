@@ -93,6 +93,28 @@ const register = async (userDetails) => {
   }
 };
 
+const buyTicket = async (tripId) => {
+  try {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const { data } = await http.post(
+        "/tickets/buyTicket",
+        {
+          tripId,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      return data ? data : null;
+    }
+    return null;
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
+};
+
 const requests = {
   ...getMethods,
   ...updateMethods,
@@ -101,6 +123,7 @@ const requests = {
   silentLogin,
   login,
   register,
+  buyTicket,
 };
 
 export default requests;

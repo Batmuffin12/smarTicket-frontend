@@ -16,3 +16,7 @@ export const findXById = ({ id, models }) =>
 
 export const findXInDataByKey = ({ key, value, models }) =>
   models?.find((model) => model?.data[key] === value);
+
+export const getAvgByKey = ({ models, key }) =>
+  models?.reduce((preSum, model) => preSum + model.data[key], 0) /
+  models?.length;

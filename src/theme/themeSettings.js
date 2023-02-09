@@ -19,6 +19,13 @@ export const colors = {
   lightBlue: `#A5F1E9`,
   grey: "#E0E0E0",
   lightPink: "#FFE7E9",
+  green: "#68B984",
+  yellow: "#FED049",
+  red: "#DC3535",
+  lightYellow: "#FFFBC1",
+  lightOrange: "#FEBE8C",
+  orange: "#EB6440",
+  lightRed: "#FF7D7D",
 };
 
 export const sizes = {

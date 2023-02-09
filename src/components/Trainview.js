@@ -2,8 +2,10 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { findXById } from "utils/generalUtils";
 import StyledButton from "./styles/StyledButton";
-import StyledLink from "./styles/StyledLink";
 import StyledP from "./styles/StyledP";
+import api from "../services/api";
+import actions from "store/actions";
+import { useActions } from "hooks/useAction";
 
 const TrainViewWrapper = styled.div`
   display: flex;
@@ -18,8 +20,23 @@ const TrainViewWrapper = styled.div`
 const selectors = (state) => ({
   stations: state.Stations.data.data,
 });
+const componentActions = {
+  setPopUpState: actions.setPopUpState,
+};
 const TrainView = ({ id, trainData }) => {
+  const { setPopUpState } = useActions(componentActions);
   const { stations } = useSelector(selectors);
+  const buyTicketRequest = async () => {
+    try {
+      const { data } = await api.buyTicket(id);
+      setPopUpState({
+        text: data ? "ticket bought successfuly" : "unable to buy a ticket",
+        open: true,
+      });
+    } catch (e) {
+      setPopUpState({ text: "unable to buy a ticket", open: true });
+    }
+  };
   return (
     <TrainViewWrapper>
       <StyledP textAlign="left">Train number: {trainData.trainNumber} </StyledP>
@@ -41,9 +58,7 @@ const TrainView = ({ id, trainData }) => {
             })?.data?.name
           : ""}
       </StyledP>
-      <StyledButton>
-        <StyledLink to={`/buyTicket/${id}`}>Buy Ticket</StyledLink>
-      </StyledButton>
+      <StyledButton onClick={buyTicketRequest}>Buy Ticket</StyledButton>
     </TrainViewWrapper>
   );
 };

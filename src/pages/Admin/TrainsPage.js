@@ -42,7 +42,7 @@ const TrainsPage = () => {
       filter: false,
     },
     {
-      headerName: "Remaining Seats",
+      headerName: "Train Capacity",
       field: "seats",
     },
   ];
@@ -77,6 +77,8 @@ const TrainsPage = () => {
       })
       .flat();
   };
+
+  // const updateData = (e) => {};
 
   return (
     <TableView

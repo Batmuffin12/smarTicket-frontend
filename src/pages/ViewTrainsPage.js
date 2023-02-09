@@ -1,6 +1,7 @@
 import TrainView from "components/Trainview";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { findXById } from "utils/generalUtils";
 
 const ViewTrainWrapper = styled.div`
   display: flex;
@@ -10,16 +11,22 @@ const ViewTrainWrapper = styled.div`
 `;
 
 const selectors = (state) => ({
-  trains: state.Trains.data,
+  trains: state.Trains.data.data,
+  trips: state.Trips.data.data,
 });
 
 const ViewTrainsPage = () => {
-  const { trains } = useSelector(selectors);
+  const { trains, trips } = useSelector(selectors);
   return (
     <ViewTrainWrapper>
-      {trains?.data?.map((train) => (
-        <TrainView key={train.id} id={train.id} trainData={train.data} />
-      ))}
+      {trains &&
+        trips?.map((trip) => {
+          const trainData = findXById({
+            models: trains,
+            id: trip.data.trainId,
+          })?.data;
+          return <TrainView key={trip.id} id={trip.id} trainData={trainData} />;
+        })}
     </ViewTrainWrapper>
   );
 };

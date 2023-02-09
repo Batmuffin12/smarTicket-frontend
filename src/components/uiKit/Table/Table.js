@@ -9,6 +9,14 @@ import { valueFormatter } from "./valueFormatter";
 const TableWrapper = styled.div`
   width: 100%;
   height: 100%;
+
+  .ag-floating-top {
+    overflow-y: hidden !important;
+  }
+
+  .ag-horizontal-left-spacer {
+    overflow-x: hidden !important;
+  }
 `;
 
 const Table = ({

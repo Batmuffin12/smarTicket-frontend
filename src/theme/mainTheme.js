@@ -9,6 +9,18 @@ const mainTheme = {
     background: colors.lightCream,
     secondaryBackground: colors.lightPink,
     buttonText: colors.black,
+    avgColors: {
+      main: {
+        aboveAvg: colors.green,
+        avg: colors.yellow,
+        belowAvg: colors.red,
+      },
+      secondary: {
+        aboveAvg: colors.lightYellow,
+        avg: colors.lightOrange,
+        belowAvg: colors.lightRed,
+      },
+    },
   },
   fonts,
   textSizes,

@@ -11,9 +11,12 @@ const selectors = (state) => ({
 const componentActions = {
   updateTickets: actions.updateTickets,
   getTickets: actions.getTickets,
+  createTickets: actions.createTickets,
+  deleteTickets: actions.deleteTickets,
 };
 const TicketsPage = () => {
-  const { updateTickets, getTickets } = useActions(componentActions);
+  const { updateTickets, getTickets, createTickets, deleteTickets } =
+    useActions(componentActions);
   const { users, tickets } = useSelector(selectors);
   const stationsDefs = [
     {
@@ -36,6 +39,7 @@ const TicketsPage = () => {
     },
   ];
   let ticketNumber = 0;
+
   return (
     <TableView
       columnDefs={stationsDefs}
@@ -58,11 +62,29 @@ const TicketsPage = () => {
         ticketNumber++;
         ticket.data.ticketNumber = ticketNumber;
         ticket.data.validUntilShow = new Date(ticket.data.validUntil._seconds);
-        ticket.data.userId = users?.find(
-          (user) => user.id === ticket.data.userId
-        )?.data?.name;
+        ticket.data.userId = findXById({
+          id: ticket.data.userId,
+          models: users,
+        })?.data?.name;
         return { id: ticket.id, ...ticket.data };
       })}
+      addItems={(e) => {
+        const { ticketNumber, validUntilShow, ...rest } = e.data;
+        rest.userId = findXInDataByKey({
+          models: users,
+          value: e.data.userId,
+          key: "name",
+        })?.id;
+        if (rest.userId) {
+          createTickets({
+            validUntil: new Date(`${validUntilShow}-01`).getTime(),
+            ...rest,
+          });
+        } else {
+          //open popUp
+        }
+      }}
+      deleteItems={(e) => deleteTickets(e)}
     />
   );
 };

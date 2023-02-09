@@ -6,6 +6,7 @@ import Table from "./uiKit/Table/Table";
 const Wrapper = styled.div`
   width: 100%;
   height: 95%;
+  min-height: 95%;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
