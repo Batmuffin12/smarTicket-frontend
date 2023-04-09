@@ -35,17 +35,15 @@ const SignUpForm = ({
   const { setPopUpState } = useActions(componentActions);
 
   const clickNextPhase = ({ inputs = [], next, validFuncs }) => {
-    if (validItems({ items: inputs, obj: information, validFuncs })) {
+    if (
+      validItems({
+        items: inputs,
+        obj: information,
+        validFuncs,
+        setPopUpState,
+      })
+    ) {
       setPhase(phase + next);
-      setPopUpState({
-        text: null,
-        open: false,
-      });
-    } else {
-      setPopUpState({
-        text: "one of the fields isn't right.",
-        open: true,
-      });
     }
   };
 
@@ -61,24 +59,28 @@ const SignUpForm = ({
                 name: "name",
                 type: "text",
                 placeholder: "Name",
+                value: information?.name,
               },
               {
                 onChange: addInputData,
                 name: "email",
                 type: "email",
                 placeholder: "Email",
+                value: information?.email,
               },
               {
                 onChange: addInputData,
                 name: "password",
                 type: "password",
                 placeholder: "Password",
+                value: information?.password,
               },
               {
                 onChange: addInputData,
                 name: "confirmPassword",
                 type: "password",
                 placeholder: "Confirm Password",
+                value: information?.confirmPassword,
               },
             ]}
             ButtonWrapper={ButtonWrapper}
@@ -108,18 +110,21 @@ const SignUpForm = ({
                 name: "cardNum",
                 type: "text",
                 placeholder: "Credit Card Number",
+                value: information?.cardNum,
               },
               {
                 onChange: addInputData,
                 name: "cardValid",
                 type: "month",
                 placeholder: "",
+                value: information?.cardValid,
               },
               {
                 onChange: addInputData,
                 name: "cardCSC",
                 type: "text",
                 placeholder: "Credit Card CSC",
+                value: information?.cardCSC,
               },
             ]}
             InputWrapper={InputWrapper}

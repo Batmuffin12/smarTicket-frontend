@@ -22,7 +22,7 @@ const LoginPage = () => {
 
   const loginAttempt = () => {
     if (currentUser === null) {
-      setPopUpState({ text: "unable to login", open: true });
+      setPopUpState({ text: "unable to login", open: true, success: false });
     } else if (currentUser) {
       setPopUpState({ text: null, open: false });
       navigate("/", { replace: true });

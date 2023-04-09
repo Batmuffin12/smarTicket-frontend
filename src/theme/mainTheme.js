@@ -21,6 +21,8 @@ const mainTheme = {
         belowAvg: colors.lightRed,
       },
     },
+    success: colors.darkerLightBlue,
+    failure: colors.orange,
   },
   fonts,
   textSizes,

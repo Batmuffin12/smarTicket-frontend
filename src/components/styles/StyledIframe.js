@@ -3,8 +3,8 @@ import Iframe from "components/uiKit/Iframe";
 
 const StyledIframe = styled(Iframe)`
   border: none;
-  border-radius: 5px;
-  padding: ${({ theme }) => theme.sizes.mediumSize};
+  margin: ${({ theme }) => theme.sizes.mediumSize};
+  border-radius: 10px;
 `;
 
 export default StyledIframe;

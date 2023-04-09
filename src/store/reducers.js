@@ -100,6 +100,7 @@ const reducers = {
   popUp: makeReducer(
     {
       [actions.setPopUpState]: (state, { payload }) => {
+        console.log(state, payload);
         return { ...state, ...payload };
       },
     },
@@ -107,6 +108,7 @@ const reducers = {
       defaultState: {
         open: false,
         text: null,
+        success: false,
       },
     }
   ),

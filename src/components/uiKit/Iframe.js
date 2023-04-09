@@ -6,6 +6,7 @@ const Iframe = ({
   height = 315,
   className = "",
   title = "",
+  ...rest
 }) => {
   if (src) {
     return (
@@ -15,6 +16,7 @@ const Iframe = ({
         width={width}
         height={height}
         title={title}
+        {...rest}
       />
     );
   }

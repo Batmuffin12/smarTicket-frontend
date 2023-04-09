@@ -32,9 +32,14 @@ const TrainView = ({ id, trainData }) => {
       setPopUpState({
         text: data ? "ticket bought successfuly" : "unable to buy a ticket",
         open: true,
+        success: data ? true : false,
       });
     } catch (e) {
-      setPopUpState({ text: "unable to buy a ticket", open: true });
+      setPopUpState({
+        text: "unable to buy a ticket",
+        open: true,
+        success: false,
+      });
     }
   };
   return (

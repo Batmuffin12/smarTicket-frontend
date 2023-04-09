@@ -64,7 +64,6 @@ const StationsPage = () => {
   ];
 
   let stationNumber = 0;
-  console.log(stations);
   const graphLabels = sortedStations?.map((station) => station.data.name) || [];
   const avgGraphData = {
     entries: getAvgByKey({ models: stations, key: "entries" }),
@@ -90,7 +89,6 @@ const StationsPage = () => {
         label: "leaves",
         data: sortedStations?.map((station) => station.data.leaves),
         backgroundColor: (context) => {
-          console.log(theme);
           const { value } = getIndexAndValuesFromContext(context);
           return getColorByAvg({
             value,

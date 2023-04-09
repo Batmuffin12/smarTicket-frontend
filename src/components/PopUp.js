@@ -16,9 +16,9 @@ const LoginPopUpWrapper = styled.div`
   display: ${({ visible }) => (visible ? "flex" : "none")};
   justify-content: space-between;
   margin: ${({ theme }) => theme.sizes.smallSize};
-  background-color: ${({ success }) => (success ? "green" : "red")};
+  background-color: ${({ theme, success }) =>
+    success ? theme.colors.success : theme.colors.failure};
   opacity: 0.7;
-  /* visibility: ${({ visible }) => (visible ? "visible" : "hidden")}; */
   transition: 1s ease-in-out;
   z-index: ${({ theme }) => theme.zIndexes.popUp};
 `;
@@ -38,7 +38,7 @@ const PopUp = ({ ...rest }) => {
     setPopUpState({ text: null, open: false });
   };
   return (
-    <LoginPopUpWrapper visible={popUp.open} {...rest}>
+    <LoginPopUpWrapper success={popUp.success} visible={popUp.open} {...rest}>
       <StyledP>{popUp.text}</StyledP>
       <StyledButton onClick={closePopUp}>X</StyledButton>
     </LoginPopUpWrapper>

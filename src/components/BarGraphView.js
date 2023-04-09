@@ -32,7 +32,9 @@ export const options = {
   },
 };
 
-const BarGraphWrapper = styled.div``;
+const BarGraphWrapper = styled.div`
+  height: 100%;
+`;
 
 const BarGraphView = ({ data }) => {
   return (
