@@ -5,7 +5,7 @@ import { useActions } from "hooks/useAction";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import actions from "store/actions";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { findXById, findXInDataByKey } from "utils/generalUtils";
 
 const selectors = (state) => ({
@@ -28,10 +28,12 @@ const PageWrapper = styled.div`
 
 const ButtonWrapper = styled.div`
   display: flex;
+  justify-content: space-evenly;
 `;
 const TicketsPage = () => {
   const { updateTickets, getTickets, createTickets, deleteTickets } =
     useActions(componentActions);
+  const theme = useTheme();
   const { users, tickets } = useSelector(selectors);
   const [sortUserTickets, setSortUsersTickets] = useState({
     value: "high",
@@ -101,10 +103,12 @@ const TicketsPage = () => {
     datasets: top10Users?.map((user, index) => ({
       label: user?.name,
       data: data ? [data[index]] : null,
-      backgroundColor: "blue",
+      backgroundColor:
+        sortUserTickets.value === "high"
+          ? theme.colors.avgColors.main.aboveAvg
+          : theme.colors.avgColors.main.belowAvg,
     })),
   };
-  if (userTicketsData) console.log(userTicketsData);
   return (
     <PageWrapper>
       <TableView
@@ -158,15 +162,21 @@ const TicketsPage = () => {
       <ButtonWrapper>
         <StyledButton
           key="low"
-          onClick={() => setSortUsersTickets({ value: "low" })}
+          onClick={() => {
+            getTickets();
+            setSortUsersTickets({ value: "low" });
+          }}
         >
-          low
+          sort by low
         </StyledButton>
         <StyledButton
           key="high"
-          onClick={() => setSortUsersTickets({ value: "high" })}
+          onClick={() => {
+            getTickets();
+            setSortUsersTickets({ value: "high" });
+          }}
         >
-          high
+          sort by high
         </StyledButton>
       </ButtonWrapper>
       <BarGraphView data={userTicketsData} />

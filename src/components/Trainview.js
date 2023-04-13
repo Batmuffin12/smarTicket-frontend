@@ -30,7 +30,9 @@ const TrainView = ({ id, trainData }) => {
     try {
       const { data } = await api.buyTicket(id);
       setPopUpState({
-        text: data ? "ticket bought successfuly" : "unable to buy a ticket",
+        text: data
+          ? "ticket bought successfully"
+          : "unable to buy a ticket check if you're signed in",
         open: true,
         success: data ? true : false,
       });

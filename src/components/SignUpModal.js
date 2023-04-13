@@ -38,6 +38,7 @@ const SignUpModal = () => {
     delete newBaseObject.cardValid;
     delete newBaseObject.cardCSC;
     delete newBaseObject.cardNumber;
+    delete newBaseObject.confirmPassword;
 
     const sendDataObject = {
       ...newBaseObject,
@@ -48,7 +49,21 @@ const SignUpModal = () => {
       },
       img: await fileToBase64(newBaseObject.img),
     };
-    register(sendDataObject);
+    const fileOptions = ["png", "jpg", "jpeg"];
+    const isImageValid = fileOptions.reduce((isValidFile, currentFormat) => {
+      if (!isValidFile && sendDataObject.img.includes(`image/${currentFormat}`))
+        sendDataObject.imgType = currentFormat;
+      return (
+        isValidFile || sendDataObject.img.includes(`image/${currentFormat}`)
+      );
+    }, false);
+    if (isImageValid) {
+      register(sendDataObject);
+    } else {
+      //pop up notification
+      console.log("no good file");
+    }
+    console.log(sendDataObject);
   };
   return (
     <SignUpModalWrapper>
