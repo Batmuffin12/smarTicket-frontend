@@ -10,7 +10,7 @@ const ContactWrapper = styled.div`
   margin-top: ${({ theme }) => theme.sizes.largeSize};
   display: flex;
   flex-direction: column;
-  padding: ${({ theme }) => theme.sizes.mainPadding};
+  width: 100%;
 `;
 
 const componentActions = {
@@ -32,8 +32,7 @@ const ContactUs = () => {
     changeInputData({ key: e.target.name, value: e.target.value });
   };
   const sendEmail = (e) => {
-    const res = sendContactUsEmail(information);
-    console.log(res);
+    sendContactUsEmail(information);
     if (contactUsEmail !== undefined) {
       setPopUpState({
         text: "email was send thank you for submitting",
