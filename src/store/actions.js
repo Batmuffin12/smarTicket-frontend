@@ -22,6 +22,7 @@ const actions = {
   silentLogin: makeAsyncActionCreator("SILENT_LOGIN"),
   setPopUpState: makeActionCreator("SET_POPUP_STATE"),
   register: makeAsyncActionCreator("REGISTER"),
+  sendContactUsEmail: makeAsyncActionCreator("SEND_CONTACT_EMAIL"),
 };
 
 export default actions;

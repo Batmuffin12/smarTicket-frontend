@@ -111,6 +111,10 @@ const reducers = {
       },
     }
   ),
+  contactUsEmail: makeAsyncReducer(actions.sendContactUsEmail, {
+    defaultData: undefined,
+    dataGetter: ({ data }, { payload }) => payload,
+  }),
 };
 
 export default reducers;

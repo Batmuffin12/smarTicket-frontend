@@ -14,11 +14,7 @@ const ButtonWrapper = styled.div`
   display: flex;
 `;
 
-const ContactForm = () => {
-  const submitForm = (e) => {
-    //fetch data
-  };
-
+const ContactForm = ({ submitForm, addInputData }) => {
   return (
     <StyledForm>
       <Form
@@ -26,18 +22,21 @@ const ContactForm = () => {
         ButtonWrapper={ButtonWrapper}
         inputs={[
           {
+            onChange: addInputData,
             name: "name",
             type: "text",
             size: "mediumSize",
             placeholder: "Your Name:",
           },
           {
+            onChange: addInputData,
             name: "email",
             type: "text",
             placeholder: "Your Email:",
             size: "mediumSize",
           },
           {
+            onChange: addInputData,
             name: "subject",
             type: "text",
             placeholder: "Subject",

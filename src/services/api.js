@@ -115,6 +115,22 @@ const buyTicket = async (tripId) => {
   }
 };
 
+const sendContactUsEmail = async ({ name, email, subject }) => {
+  try {
+    console.log("inside send function ");
+    const response = await http.post("/contactUs/send", {
+      name,
+      email,
+      subject,
+    });
+    console.log(response);
+    return response ? response : null;
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
+};
+
 const requests = {
   ...getMethods,
   ...updateMethods,
@@ -124,6 +140,7 @@ const requests = {
   login,
   register,
   buyTicket,
+  sendContactUsEmail,
 };
 
 export default requests;
