@@ -1,7 +1,6 @@
 import StyledButton from "components/styles/StyledButton";
 import StyledH1 from "components/styles/StyledH1";
 import StyledImg from "components/styles/StyledImg";
-import StyledP from "components/styles/StyledP";
 import styled from "styled-components";
 import logo from "../manTakingTrain.png";
 import { useNavigate } from "react-router-dom";

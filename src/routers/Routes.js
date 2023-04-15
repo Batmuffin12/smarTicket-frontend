@@ -32,7 +32,6 @@ const RouterWrapper = styled.div`
 
 const AppRoutes = () => {
   useAdminData();
-
   return (
     <RouterWrapper>
       <Routes>

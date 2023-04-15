@@ -184,7 +184,7 @@ const SignUpForm = ({
             ]}
           />
         </StyledForm>
-      ); //returns form with image upload
+      );
 
     default:
       return <div />;

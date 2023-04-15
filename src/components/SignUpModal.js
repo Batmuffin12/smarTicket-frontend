@@ -15,12 +15,13 @@ const SignUpModalWrapper = styled.div`
 
 const componentsActions = {
   register: actions.register,
+  setPopUpState: actions.setPopUpState,
 };
 
 const SignUpModal = () => {
   const [phase, setPhase] = useState(1);
   const [information, setInformation] = useState({ isAdmin: false });
-  const { register } = useActions(componentsActions);
+  const { register, setPopUpState } = useActions(componentsActions);
   const changeInputData = ({ key, value }) =>
     setInformation({ ...information, [key]: value });
 
@@ -60,10 +61,12 @@ const SignUpModal = () => {
     if (isImageValid) {
       register(sendDataObject);
     } else {
-      //pop up notification
-      console.log("no good file");
+      setPopUpState({
+        text: "file isn`t a photo ",
+        open: true,
+        success: false,
+      });
     }
-    console.log(sendDataObject);
   };
   return (
     <SignUpModalWrapper>

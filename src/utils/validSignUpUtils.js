@@ -1,5 +1,4 @@
 export const validItems = ({ items, obj, validFuncs, setPopUpState }) => {
-  console.log(obj);
   const isValidFuncs = validFuncs
     ? validFuncs.reduce(
         (isValid, validFunc) => isValid && validFunc(obj, setPopUpState),
