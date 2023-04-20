@@ -83,6 +83,7 @@ const login = async ({ email, password }) => {
 
 const register = async (userDetails) => {
   try {
+    console.log("          ");
     const { data } = await http.post("register", {
       ...userDetails,
     });
