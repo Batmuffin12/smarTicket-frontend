@@ -1,6 +1,7 @@
 import { models } from "appConstants/models";
 import { composeReducers, makeAsyncReducer, makeReducer } from "redux-toolbelt";
 import { capitalize } from "utils/storeUtils";
+import mainTheme from "theme/mainTheme";
 import actions from "./actions";
 
 const dynamicReduces = models
@@ -109,6 +110,16 @@ const reducers = {
         text: null,
         success: false,
       },
+    }
+  ),
+  theme: makeReducer(
+    {
+      [actions.setTheme]: (state, { payload }) => {
+        return { ...state, ...payload };
+      },
+    },
+    {
+      defaultState: { theme: mainTheme },
     }
   ),
   contactUsEmail: makeAsyncReducer(actions.sendContactUsEmail, {

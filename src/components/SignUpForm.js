@@ -1,12 +1,14 @@
+import * as faceapi from "face-api.js";
 import { useActions } from "hooks/useAction";
+import { useEffect, useRef } from "react";
 import actions from "store/actions";
 import styled from "styled-components";
 import {
+  validItems,
   validateCreditCSC,
   validateCreditNumber,
   validateEmail,
   validatePassword,
-  validItems,
 } from "utils/validSignUpUtils";
 import Form from "./Form";
 import StyledForm from "./styles/StyledForm";
@@ -33,6 +35,17 @@ const SignUpForm = ({
   information,
 }) => {
   const { setPopUpState } = useActions(componentActions);
+  const imgRef = useRef();
+  const canvasRef = useRef();
+
+  useEffect(() => {
+    Promise.all([
+      faceapi.nets.ssdMobilenetv1.loadFromDisk("../public/models"),
+      faceapi.nets.faceLandmark68Net.loadFromDisk("../public/models"),
+    ])
+      .then(console.log("loaded face models"))
+      .catch((e) => console.error(e || e?.message));
+  }, []);
 
   const clickNextPhase = ({ inputs = [], next, validFuncs }) => {
     if (
@@ -44,6 +57,7 @@ const SignUpForm = ({
       })
     ) {
       setPhase(phase + next);
+      console.log(information);
     }
   };
 

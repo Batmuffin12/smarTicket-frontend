@@ -83,7 +83,6 @@ const login = async ({ email, password }) => {
 
 const register = async (userDetails) => {
   try {
-    console.log("          ");
     const { data } = await http.post("register", {
       ...userDetails,
     });
@@ -118,7 +117,6 @@ const buyTicket = async (tripId) => {
 
 const sendContactUsEmail = async ({ name, email, subject }) => {
   try {
-    console.log("inside send function ");
     const response = await http.post("/contactUs/send", {
       name,
       email,

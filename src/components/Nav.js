@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import actions from "store/actions";
 import DropdownNavLink from "./DropdownNavLink";
-import { StyledNavButton } from "./styles/StyledNavLink";
+import StyledButton from "./styles/StyledButton";
 
 const selectors = (state) => ({
   currentUser: state.currentUser?.data,
@@ -52,22 +52,26 @@ const Nav = () => {
   }, [currentUser]);
 
   return (
-    <StyledHeader>
-      <NavLinkTag to={paths.homePage} exact="true" text="Home Page" />
-      <NavLinkTag to={paths.contactUsPage} text="Contact Us" />
-      <NavLinkTag to={paths.viewTrainsPage} text="Buy a Ticket" />
-      {showLogin && <NavLinkTag to={paths.loginPage} text="Login / signUp" />}
-      {isAdmin && <DropdownNavLink firstItem={firstItem} items={adminLinks} />}
-      {!showLogin && (
-        <StyledNavButton
-          onClick={() => {
-            signOut();
-          }}
-        >
-          Sign Out
-        </StyledNavButton>
-      )}
-    </StyledHeader>
+    <>
+      <StyledHeader>
+        <NavLinkTag to={paths.homePage} exact="true" text="Home Page" />
+        <NavLinkTag to={paths.contactUsPage} text="Contact Us" />
+        <NavLinkTag to={paths.viewTrainsPage} text="Buy a Ticket" />
+        {showLogin && <NavLinkTag to={paths.loginPage} text="Login / signUp" />}
+        {isAdmin && (
+          <DropdownNavLink firstItem={firstItem} items={adminLinks} />
+        )}
+        {!showLogin && (
+          <StyledButton
+            onClick={() => {
+              signOut();
+            }}
+          >
+            Sign Out
+          </StyledButton>
+        )}
+      </StyledHeader>
+    </>
   );
 };
 

@@ -1,16 +1,33 @@
-import { colors, fonts, textSizes, sizes } from "./themeSettings";
+import { colors, fonts, textSizes, sizes, zIndexes } from "./themeSettings";
 
 const darkTheme = {
   colors: {
-    main: colors.whiteBlue,
-    secondary: colors.darkBlue,
-    text: colors.white,
-    background: colors.black,
-    buttonText: colors.white,
+    main: colors.lightBlue,
+    mainHover: colors.cyan,
+    secondary: colors.darkerLightBlue,
+    text: colors.black,
+    background: colors.lightCream,
+    secondaryBackground: colors.lightPink,
+    buttonText: colors.black,
+    avgColors: {
+      main: {
+        aboveAvg: colors.green,
+        avg: colors.yellow,
+        belowAvg: colors.red,
+      },
+      secondary: {
+        aboveAvg: colors.lightYellow,
+        avg: colors.lightOrange,
+        belowAvg: colors.lightRed,
+      },
+    },
+    success: colors.darkerLightBlue,
+    failure: colors.orange,
   },
   fonts,
   textSizes,
   sizes,
+  zIndexes,
 };
 
 export default darkTheme;

@@ -10,9 +10,12 @@ const selectors = (state) => ({
 const componentActions = {
   updateTrips: actions.updateTrips,
   getTrips: actions.getTrips,
+  deleteTrips: actions.deleteTrips,
+  createTrips: actions.createTrips,
 };
 const TripsPage = () => {
-  const { updateTrips, getTrips } = useActions(componentActions);
+  const { updateTrips, getTrips, deleteTrips, createTrains } =
+    useActions(componentActions);
   const { trains, trips } = useSelector(selectors);
   const stationsDefs = [
     {
@@ -43,7 +46,12 @@ const TripsPage = () => {
     <TableView
       columnDefs={stationsDefs}
       title={"Trips Table"}
-      update={(e) => {}}
+      update={(e) => {
+        updateTrips(e);
+      }}
+      getItems={(e) => getTrips(e)}
+      deleteItems={(e) => deleteTrips(e)}
+      addItems={(e) => createTrains(e.data)}
       rowData={trips?.map((trip) => {
         tripNumber++;
         trip.data.tripNumber = tripNumber;
