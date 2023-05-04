@@ -3,13 +3,7 @@
 */
 
 export const emailValueSetter = (key) => (params) => {
-  // TODO: create regex for email
   const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-  // console.log(
-  //   emailRegex.test(params.newValue),
-  //   params.newValue,
-  //   "this is in email regex"
-  // );
   if (emailRegex.test(params.newValue)) {
     params.data[key] = params.newValue;
     return true;

@@ -13,6 +13,7 @@ const paths = {
     trips: "/admin/trips",
     tickets: "/admin/tickets",
   },
+  galleryPage: "/gallery",
   notFound: "*",
 };
 

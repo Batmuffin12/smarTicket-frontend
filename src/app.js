@@ -17,9 +17,9 @@ const history = createBrowserHistory();
 const store = configureStore({ history });
 store.dispatch(actions.init());
 
-const selectors = (state) => ({
-  theme: state.theme?.data,
-});
+// const selectors = (state) => ({
+//   theme: state.theme?.data,
+// });
 
 const App = () => {
   // const { theme } = useSelector(selectors);

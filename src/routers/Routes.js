@@ -11,6 +11,7 @@ import HomePage from "pages/HomePage";
 import LoginPage from "pages/LoginPage";
 import NotFound from "pages/NotFoundPage";
 import SignUpPage from "pages/SignUpPage";
+import GalleryPage from "pages/GalleryPage";
 import ViewTrainsPage from "pages/ViewTrainsPage";
 import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
@@ -60,6 +61,7 @@ const AppRoutes = () => {
           />
           <Route path={paths.adminPages.trips} exact element={<TripsPage />} />
         </Route>
+        <Route path={paths.galleryPage} element={<GalleryPage />} />
         <Route path={paths.notFound} element={<NotFound />} />
       </Routes>
     </RouterWrapper>

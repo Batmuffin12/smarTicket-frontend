@@ -57,6 +57,7 @@ const Nav = () => {
         <NavLinkTag to={paths.homePage} exact="true" text="Home Page" />
         <NavLinkTag to={paths.contactUsPage} text="Contact Us" />
         <NavLinkTag to={paths.viewTrainsPage} text="Buy a Ticket" />
+        <NavLinkTag to={paths.galleryPage} text="Gallery" />
         {showLogin && <NavLinkTag to={paths.loginPage} text="Login / signUp" />}
         {isAdmin && (
           <DropdownNavLink firstItem={firstItem} items={adminLinks} />

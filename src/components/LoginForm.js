@@ -4,6 +4,7 @@ import actions from "store/actions";
 import styled from "styled-components";
 import Form from "./Form";
 import StyledForm from "./styles/StyledForm";
+import { validateEmail } from "utils/validSignUpUtils";
 
 const InputWrapper = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ const componentActions = {
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const { login } = useActions(componentActions);
+  const { login, setPopUpState } = useActions(componentActions);
 
   const changeInputValue = (e) =>
     setFormData((oldState) => ({
@@ -30,6 +31,16 @@ const LoginForm = () => {
     }));
 
   const formSubmit = (e) => {
+    if (!formData.email) {
+      validateEmail({ email: formData.email }, setPopUpState);
+      return;
+    }
+    if (!formData.password)
+      return setPopUpState({
+        text: "password must contain 7-14 characters",
+        open: true,
+        success: false,
+      });
     login({
       email: formData.email,
       password: formData.password,
