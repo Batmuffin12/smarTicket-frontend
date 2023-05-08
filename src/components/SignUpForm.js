@@ -1,5 +1,4 @@
 import { useActions } from "hooks/useAction";
-import { useEffect } from "react";
 import actions from "store/actions";
 import styled from "styled-components";
 import {
